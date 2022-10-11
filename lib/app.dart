@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Login.id,
+      initialRoute: First.id,
       routes: <String, WidgetBuilder>{
         First.id: (BuildContext context) => const First(),
         Login.id: (BuildContext context) => const Login(),
