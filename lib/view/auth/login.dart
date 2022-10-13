@@ -7,10 +7,19 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 63, 63, 63),
       appBar: AppBar(
-        title: Text("ログイン"),
+        title: Text(
+          "ログイン",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 50,
+          ),
+        ),
         centerTitle: true,
         leading: Icon(Icons.arrow_back_outlined),
+        backgroundColor: Color.fromARGB(255, 63, 63, 63),
+        elevation: 0.0,
       ),
       body: SafeArea(
         child: Padding(
@@ -25,7 +34,9 @@ class Login extends StatelessWidget {
                 height: 70,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 200, 155, 155),
+                    border:
+                        Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                    color: Color.fromARGB(255, 0, 0, 0),
                     borderRadius: BorderRadius.all(Radius.circular(100))),
                 child: TextFormField(
                   style: TextStyle(fontSize: 25),
@@ -33,32 +44,38 @@ class Login extends StatelessWidget {
                       icon: Icon(
                         Icons.mail,
                         size: 40,
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                       hintText: "email",
+                      hintStyle:
+                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none),
                 ),
               ),
               SizedBox(
-                height: 3,
+                height: 20,
               ),
               Container(
                 width: double.infinity,
                 height: 70,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 200, 155, 155),
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    border:
+                        Border.all(color: Color.fromARGB(255, 255, 255, 255)),
                     borderRadius: BorderRadius.all(Radius.circular(100))),
                 child: TextFormField(
                   style: TextStyle(fontSize: 25),
                   decoration: InputDecoration(
                       icon: Icon(
-                        Icons.mail,
+                        Icons.lock,
                         size: 40,
-                        color: Colors.brown,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      hintText: "email",
+                      hintText: "password",
+                      hintStyle:
+                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none),
                 ),
@@ -70,17 +87,19 @@ class Login extends StatelessWidget {
                 },
                 child: Container(
                   width: double.infinity,
-                  height: 70,
+                  height: 65,
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 200, 155, 155),
+                      border: Border.all(
+                          color: Color.fromARGB(255, 13, 245, 227), width: 4),
                       borderRadius: BorderRadius.all(Radius.circular(100))),
                   child: Center(
                     child: Text(
                       "ログイン",
                       style: TextStyle(
-                        fontSize: 50,
-                      ),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40,
+                          color: Color.fromARGB(255, 13, 245, 227)),
                     ),
                   ),
                 ),
