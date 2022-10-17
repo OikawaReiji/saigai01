@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class Sign extends StatelessWidget {
+import '../../provider/general_provider.dart';
+
+class Sign extends HookConsumerWidget {
   const Sign({super.key});
   static String id = "Sign";
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-
+    final authPageStateController =
+        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 63, 63, 63),
+      backgroundColor: const Color.fromARGB(255, 63, 63, 63),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "新規登録",
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -19,10 +23,13 @@ class Sign extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        leading: Icon(
-          Icons.arrow_back_outlined,
+        leading: InkWell(
+          onTap: () {
+            authPageStateController.state = Pages.top;
+          },
+          child: const Icon(Icons.arrow_back_outlined),
         ),
-        backgroundColor: Color.fromARGB(255, 63, 63, 63),
+        backgroundColor: const Color.fromARGB(255, 63, 63, 63),
         elevation: 0.0,
       ),
       body: SafeArea(
@@ -34,22 +41,23 @@ class Sign extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 100,
                   ),
                   Container(
                     width: double.infinity,
                     height: 70,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                            color: const Color.fromARGB(255, 255, 255, 255)),
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100))),
                     child: Center(
                       child: TextFormField(
-                        style: TextStyle(fontSize: 25),
-                        decoration: InputDecoration(
+                        style: const TextStyle(fontSize: 25),
+                        decoration: const InputDecoration(
                             icon: Icon(
                               Icons.mail,
                               size: 40,
@@ -63,22 +71,23 @@ class Sign extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
                     width: double.infinity,
                     height: 70,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                         border: Border.all(
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                            color: const Color.fromARGB(255, 255, 255, 255)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100))),
                     child: Center(
                       child: TextFormField(
-                        style: TextStyle(fontSize: 25),
-                        decoration: InputDecoration(
+                        style: const TextStyle(fontSize: 25),
+                        decoration: const InputDecoration(
                             icon: Icon(
                               Icons.lock,
                               size: 40,
@@ -92,22 +101,23 @@ class Sign extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
                     width: double.infinity,
                     height: 70,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                         border: Border.all(
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                            color: const Color.fromARGB(255, 255, 255, 255)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100))),
                     child: Center(
                       child: TextFormField(
-                        style: TextStyle(fontSize: 25),
-                        decoration: InputDecoration(
+                        style: const TextStyle(fontSize: 25),
+                        decoration: const InputDecoration(
                             icon: Icon(
                               Icons.badge_outlined,
                               size: 40,
@@ -121,22 +131,23 @@ class Sign extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
                     width: double.infinity,
                     height: 70,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                         border: Border.all(
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                            color: const Color.fromARGB(255, 255, 255, 255)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(100))),
                     child: Center(
                       child: TextFormField(
-                        style: TextStyle(fontSize: 25),
-                        decoration: InputDecoration(
+                        style: const TextStyle(fontSize: 25),
+                        decoration: const InputDecoration(
                             icon: Icon(
                               Icons.phone_in_talk_outlined,
                               size: 40,
@@ -150,7 +161,7 @@ class Sign extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 180,
                   ),
                   InkWell(
@@ -160,13 +171,14 @@ class Sign extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       height: 65,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                           border: Border.all(
-                              color: Color.fromARGB(255, 13, 245, 227),
+                              color: const Color.fromARGB(255, 13, 245, 227),
                               width: 4),
-                          borderRadius: BorderRadius.all(Radius.circular(100))),
-                      child: Center(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(100))),
+                      child: const Center(
                         child: Text(
                           "登録",
                           style: TextStyle(
