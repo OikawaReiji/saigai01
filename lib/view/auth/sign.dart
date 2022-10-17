@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:saigai01/view/auth/login.dart';
+import 'package:saigai01/view/first.dart';
 
 class Sign extends StatelessWidget {
   const Sign({super.key});
@@ -19,8 +21,11 @@ class Sign extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        leading: Icon(
-          Icons.arrow_back_outlined,
+        leading: InkWell(
+          onTap: () {
+            Navigator.of(context).pushNamed(First.id);
+          },
+          child: Icon(Icons.arrow_back_ios_outlined),
         ),
         backgroundColor: Color.fromARGB(255, 63, 63, 63),
         elevation: 0.0,
