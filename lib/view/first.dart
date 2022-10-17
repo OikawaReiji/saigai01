@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:saigai01/constant/hex_color.dart';
-import 'package:saigai01/view/auth/login.dart';
 
 class First extends StatelessWidget {
   const First({super.key});
