@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "741564189485",
+    "project_id": "saigai01-f648e",
+    "storage_bucket": "saigai01-f648e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741564189485:android:408528f97b8166e83161a4",
+        "android_client_info": {
+          "package_name": "com.example.saigai01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741564189485-g307tcg6ic1ehqdr32b3srv2mj4vbpud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC38Qm3gns8KxJUsWZIyyp74Q5WOvk8j8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741564189485-g307tcg6ic1ehqdr32b3srv2mj4vbpud.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "741564189485-23ciuk7kojtdk9rq7s6a26p94ip2aoki.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.saigai01"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
