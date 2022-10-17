@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'view/auth/Top.dart';
 import 'view/auth/login.dart';
 import 'view/auth/Sign.dart';
+import 'view/separate.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         Login.id: (BuildContext context) => const Login(),
         Top.id: (BuildContext context) => const Top(),
         Sign.id: (BuildContext context) => const Sign(),
+        Separate.id: (BuildContext context) => const Separate(),
       },
     );
   }
