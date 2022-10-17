@@ -28,8 +28,8 @@ class Sign extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: SizedBox(
-            height: size.width,
-            width: size.height,
+            height: size.height,
+            width: size.width,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -46,23 +46,25 @@ class Sign extends StatelessWidget {
                             color: Color.fromARGB(255, 255, 255, 255)),
                         color: Color.fromARGB(255, 0, 0, 0),
                         borderRadius: BorderRadius.all(Radius.circular(100))),
-                    child: TextFormField(
-                      style: TextStyle(fontSize: 25),
-                      decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.mail,
-                            size: 40,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          hintText: "email",
-                          hintStyle: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none),
+                    child: Center(
+                      child: TextFormField(
+                        style: TextStyle(fontSize: 25),
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.mail,
+                              size: 40,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            hintText: "email",
+                            hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255)),
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Container(
                     width: double.infinity,
@@ -73,23 +75,25 @@ class Sign extends StatelessWidget {
                         border: Border.all(
                             color: Color.fromARGB(255, 255, 255, 255)),
                         borderRadius: BorderRadius.all(Radius.circular(100))),
-                    child: TextFormField(
-                      style: TextStyle(fontSize: 25),
-                      decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.lock,
-                            size: 40,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          hintText: "password",
-                          hintStyle: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none),
+                    child: Center(
+                      child: TextFormField(
+                        style: TextStyle(fontSize: 25),
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.lock,
+                              size: 40,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            hintText: "password",
+                            hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255)),
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Container(
                     width: double.infinity,
@@ -100,23 +104,25 @@ class Sign extends StatelessWidget {
                         border: Border.all(
                             color: Color.fromARGB(255, 255, 255, 255)),
                         borderRadius: BorderRadius.all(Radius.circular(100))),
-                    child: TextFormField(
-                      style: TextStyle(fontSize: 25),
-                      decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.lock,
-                            size: 40,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          hintText: "name",
-                          hintStyle: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none),
+                    child: Center(
+                      child: TextFormField(
+                        style: TextStyle(fontSize: 25),
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.badge_outlined,
+                              size: 40,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            hintText: "name",
+                            hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255)),
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Container(
                     width: double.infinity,
@@ -127,22 +133,26 @@ class Sign extends StatelessWidget {
                         border: Border.all(
                             color: Color.fromARGB(255, 255, 255, 255)),
                         borderRadius: BorderRadius.all(Radius.circular(100))),
-                    child: TextFormField(
-                      style: TextStyle(fontSize: 25),
-                      decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.lock,
-                            size: 40,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          hintText: "phone",
-                          hintStyle: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none),
+                    child: Center(
+                      child: TextFormField(
+                        style: TextStyle(fontSize: 25),
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.phone_in_talk_outlined,
+                              size: 40,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            hintText: "phone",
+                            hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255)),
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none),
+                      ),
                     ),
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 180,
+                  ),
                   InkWell(
                     onTap: () {
                       debugPrint("破壊");
