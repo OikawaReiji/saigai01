@@ -1,8 +1,6 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/provider/general_provider.dart';
-import 'package:saigai01/repository/auth_repository.dart';
 import 'package:saigai01/view/auth/Top.dart';
 import 'package:saigai01/view/pages/page_root.dart';
 

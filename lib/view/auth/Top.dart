@@ -23,13 +23,13 @@ class Top extends StatelessWidget {
                 //アイコンの縦幅・横幅
                 height: 100,
                 width: 100,
-                margin: EdgeInsets.only(top: 200),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.only(top: 200),
+                decoration: const BoxDecoration(
                   color: Colors.red,
                   shape: BoxShape.circle,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               //Image.asset("img/10.png")
               //ログインの遷移
               InkWell(
@@ -69,9 +69,9 @@ class Top extends StatelessWidget {
                 child: Container(
                   height: 50,
                   //ログインとアカウント作成の間を開ける
-                  margin: EdgeInsets.only(top: 20),
+                  margin: const EdgeInsets.only(top: 20),
                   width: double.infinity,
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "アカウント作成",
                     style: TextStyle(fontSize: 25),
@@ -82,7 +82,7 @@ class Top extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               )
             ],
