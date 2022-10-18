@@ -24,17 +24,21 @@ class AuthController extends StateNotifier<User?> {
   }
 
   Future<void> signUp(
-      String email, String password, String name, String phone) async {
+    String email,
+    String password,
+    String name,
+    String phone,
+    ValueNotifier<bool> loading,
+  ) async {
     try {
       final flg =
           await ref.read(authRepositoryProvider).signUp(email, password);
-
-      debugPrint("フラグ$flg");
       if (flg == null) {
         await ref.read(authRepositoryProvider).saveUserData(name, phone);
       }
+      loading.value = false;
     } catch (e) {
-      debugPrint(e.toString());
+      throw e.toString();
     }
   }
 }
