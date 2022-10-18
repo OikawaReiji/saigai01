@@ -48,19 +48,21 @@ class Login extends HookConsumerWidget {
                         color: const Color.fromARGB(255, 255, 255, 255)),
                     color: const Color.fromARGB(255, 0, 0, 0),
                     borderRadius: const BorderRadius.all(Radius.circular(100))),
-                child: TextFormField(
-                  style: const TextStyle(fontSize: 25),
-                  decoration: const InputDecoration(
-                      icon: Icon(
-                        Icons.mail,
-                        size: 40,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      hintText: "email",
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none),
+                child: Center(
+                  child: TextFormField(
+                    style: const TextStyle(fontSize: 25, color: Colors.white),
+                    decoration: const InputDecoration(
+                        icon: Icon(
+                          Icons.mail,
+                          size: 40,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                        hintText: "email",
+                        hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -75,19 +77,21 @@ class Login extends HookConsumerWidget {
                     border: Border.all(
                         color: const Color.fromARGB(255, 255, 255, 255)),
                     borderRadius: const BorderRadius.all(Radius.circular(100))),
-                child: TextFormField(
-                  style: const TextStyle(fontSize: 25),
-                  decoration: const InputDecoration(
-                      icon: Icon(
-                        Icons.lock,
-                        size: 40,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      hintText: "password",
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none),
+                child: Center(
+                  child: TextFormField(
+                    style: const TextStyle(fontSize: 25, color: Colors.white),
+                    decoration: const InputDecoration(
+                        icon: Icon(
+                          Icons.lock,
+                          size: 40,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                        hintText: "password",
+                        hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                  ),
                 ),
               ),
               const Spacer(),
