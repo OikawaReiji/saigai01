@@ -23,18 +23,44 @@ class Sign extends HookConsumerWidget {
     final ValueNotifier<bool> loading = useState(false);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 63, 63, 63),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: SizedBox(
-              height: size.height,
-              width: size.width,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      authPageStateController.state = Pages.top;
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  const Text(
+                    "新規登録",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
                 child: Column(
                   children: [
                     const SizedBox(
-                      height: 120,
+                      height: 80,
                     ),
                     MyTextfield(
                       title: 'email',
@@ -45,9 +71,6 @@ class Sign extends HookConsumerWidget {
                       ),
                       controller: maillContainer,
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
                     MyTextfield(
                       title: 'password',
                       icon: const Icon(
@@ -56,9 +79,6 @@ class Sign extends HookConsumerWidget {
                         color: Color.fromARGB(255, 255, 255, 255),
                       ),
                       controller: passContainer,
-                    ),
-                    const SizedBox(
-                      height: 15,
                     ),
                     MyTextfield(
                       title: 'name',
@@ -69,9 +89,6 @@ class Sign extends HookConsumerWidget {
                       ),
                       controller: nameContainer,
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
                     MyTextfield(
                       title: 'phone',
                       icon: const Icon(
@@ -81,9 +98,7 @@ class Sign extends HookConsumerWidget {
                       ),
                       controller: phoneContainer,
                     ),
-                    const SizedBox(
-                      height: 180,
-                    ),
+                    const Spacer(),
                     InkWell(
                       onTap: () async {
                         FocusScope.of(context).unfocus();
@@ -102,8 +117,8 @@ class Sign extends HookConsumerWidget {
                       },
                       child: Container(
                         width: double.infinity,
-                        height: 65,
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        height: 50,
+                        margin: const EdgeInsets.only(bottom: 20),
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: const Color.fromARGB(255, 13, 245, 227),
@@ -114,8 +129,7 @@ class Sign extends HookConsumerWidget {
                           child: Text(
                             "登録",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 40,
+                                fontSize: 25,
                                 color: Color.fromARGB(255, 13, 245, 227)),
                           ),
                         ),
@@ -124,57 +138,19 @@ class Sign extends HookConsumerWidget {
                   ],
                 ),
               ),
-            ),
-          ),
-          SafeArea(
-            child: Align(
-              alignment: const Alignment(0, -1),
-              child: Column(
-                children: [
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          authPageStateController.state = Pages.top;
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 40,
-                          ),
+              loading.value
+                  ? Container(
+                      color: Colors.grey.withOpacity(0.7),
+                      child: const Center(
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.grey,
                         ),
                       ),
-                      const SizedBox(width: 20),
-                      const Text(
-                        "新規登録",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+                    )
+                  : const SizedBox(),
+            ],
           ),
-          loading.value
-              ? Container(
-                  color: Colors.grey.withOpacity(0.7),
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.grey,
-                    ),
-                  ),
-                )
-              : const SizedBox(),
-        ],
+        ),
       ),
     );
   }

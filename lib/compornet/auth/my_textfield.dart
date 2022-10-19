@@ -19,6 +19,7 @@ class MyTextfield extends StatelessWidget {
       width: double.infinity,
       height: 70,
       padding: const EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
           border: Border.all(color: const Color.fromARGB(255, 255, 255, 255)),
           color: const Color.fromARGB(255, 0, 0, 0),
@@ -30,7 +31,8 @@ class MyTextfield extends StatelessWidget {
           decoration: InputDecoration(
               icon: icon,
               hintText: title,
-              hintStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+              hintStyle:
+                  const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
               border: InputBorder.none,
               focusedBorder: InputBorder.none),
         ),
