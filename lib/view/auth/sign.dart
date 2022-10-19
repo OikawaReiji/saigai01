@@ -23,138 +23,134 @@ class Sign extends HookConsumerWidget {
     final ValueNotifier<bool> loading = useState(false);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 63, 63, 63),
-      appBar: AppBar(
-        title: const Text(
-          "新規登録",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 50,
-          ),
-        ),
-        centerTitle: true,
-        leading: InkWell(
-          onTap: () {
-            authPageStateController.state = Pages.top;
-          },
-          child: const Icon(Icons.arrow_back_outlined),
-        ),
-        backgroundColor: const Color.fromARGB(255, 63, 63, 63),
-        elevation: 0.0,
-      ),
-      body: Stack(
-        children: [
-          SafeArea(
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: size.height,
-                width: size.width,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 100,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      authPageStateController.state = Pages.top;
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 40,
                       ),
-                      MyTextfield(
-                        title: 'email',
-                        icon: Icon(
-                          Icons.mail,
-                          size: 40,
-                          color: Color.fromARGB(255, 255, 255, 255),
-                        ),
-                        controller: maillContainer,
+                    ),
+                  ),
+                  const SizedBox(width: 20),
+                  const Text(
+                    "新規登録",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 80,
+                    ),
+                    MyTextfield(
+                      title: 'email',
+                      icon: const Icon(
+                        Icons.mail,
+                        size: 40,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      const SizedBox(
-                        height: 15,
+                      controller: maillContainer,
+                    ),
+                    MyTextfield(
+                      title: 'password',
+                      icon: const Icon(
+                        Icons.lock,
+                        size: 40,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      MyTextfield(
-                        title: 'password',
-                        icon: Icon(
-                          Icons.lock,
-                          size: 40,
-                          color: Color.fromARGB(255, 255, 255, 255),
-                        ),
-                        controller: passContainer,
+                      controller: passContainer,
+                    ),
+                    MyTextfield(
+                      title: 'name',
+                      icon: const Icon(
+                        Icons.badge_outlined,
+                        size: 40,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      const SizedBox(
-                        height: 15,
+                      controller: nameContainer,
+                    ),
+                    MyTextfield(
+                      title: 'phone',
+                      icon: const Icon(
+                        Icons.phone_in_talk,
+                        size: 40,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      MyTextfield(
-                        title: 'name',
-                        icon: Icon(
-                          Icons.badge_outlined,
-                          size: 40,
-                          color: Color.fromARGB(255, 255, 255, 255),
-                        ),
-                        controller: nameContainer,
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      MyTextfield(
-                        title: 'phone',
-                        icon: Icon(
-                          Icons.phone_in_talk,
-                          size: 40,
-                          color: Color.fromARGB(255, 255, 255, 255),
-                        ),
-                        controller: phoneContainer,
-                      ),
-                      const SizedBox(
-                        height: 180,
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          loading.value == true;
-                          try {
-                            await authController.signUp(
-                                maillContainer.text,
-                                passContainer.text,
-                                nameContainer.text,
-                                phoneContainer.text);
-                          } catch (e) {
-                            debugPrint(e.toString());
-                          }
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 65,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color:
-                                      const Color.fromARGB(255, 13, 245, 227),
-                                  width: 4),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(100))),
-                          child: const Center(
-                            child: Text(
-                              "登録",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 40,
-                                  color: Color.fromARGB(255, 13, 245, 227)),
-                            ),
+                      controller: phoneContainer,
+                    ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () async {
+                        FocusScope.of(context).unfocus();
+                        loading.value = true;
+                        try {
+                          await authController.signUp(
+                            maillContainer.text,
+                            passContainer.text,
+                            nameContainer.text,
+                            phoneContainer.text,
+                            loading,
+                          );
+                        } catch (e) {
+                          debugPrint(e.toString());
+                        }
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        margin: const EdgeInsets.only(bottom: 20),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: const Color.fromARGB(255, 13, 245, 227),
+                                width: 4),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(100))),
+                        child: const Center(
+                          child: Text(
+                            "登録",
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Color.fromARGB(255, 13, 245, 227)),
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            ),
+              loading.value
+                  ? Container(
+                      color: Colors.grey.withOpacity(0.7),
+                      child: const Center(
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.grey,
+                        ),
+                      ),
+                    )
+                  : const SizedBox(),
+            ],
           ),
-          loading.value
-              ? Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: Colors.grey.withOpacity(0.5),
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                )
-              : SizedBox(),
-        ],
+        ),
       ),
     );
   }

@@ -42,7 +42,7 @@ class AuthRepositoryImple implements AuthRepository {
   @override
   Future<String?> signUp(String email, String password) async {
     try {
-      ref.read(firebaseAuthProvider).createUserWithEmailAndPassword(
+      await ref.read(firebaseAuthProvider).createUserWithEmailAndPassword(
             email: email,
             password: password,
           );
@@ -63,9 +63,8 @@ class AuthRepositoryImple implements AuthRepository {
         'name': name,
         'phone': phone,
       });
-      // } on FirebaseAuthException catch (e) {
-    } catch (e) {
-      debugPrint("あああ" + e.toString());
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.code);
     }
   }
 
