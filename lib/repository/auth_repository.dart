@@ -29,7 +29,7 @@ class AuthRepositoryImple implements AuthRepository {
   @override
   Future<String?> signInWithEmail(String email, String password) async {
     try {
-      ref.read(firebaseAuthProvider).signInWithEmailAndPassword(
+      await ref.read(firebaseAuthProvider).signInWithEmailAndPassword(
             email: email,
             password: password,
           );

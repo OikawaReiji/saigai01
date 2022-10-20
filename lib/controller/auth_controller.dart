@@ -41,4 +41,21 @@ class AuthController extends StateNotifier<User?> {
       throw e.toString();
     }
   }
+
+  Future<void> signin(
+    String email,
+    String password,
+    ValueNotifier<bool> loading,
+  ) async {
+    try {
+      final flg = await ref
+          .read(authRepositoryProvider)
+          .signInWithEmail(email, password);
+
+      loading.value = false;
+    } catch (e) {
+      loading.value = false;
+      throw e.toString();
+    }
+  }
 }
