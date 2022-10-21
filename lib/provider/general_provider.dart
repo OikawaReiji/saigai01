@@ -12,3 +12,12 @@ enum Pages {
 }
 
 final authSwitcherPriovider = StateProvider<Pages>((ref) => Pages.top);
+
+enum Bar {
+  map,
+  publicOff,
+  emojiPeople,
+  settings,
+}
+
+final pageRootProvider = StateProvider<Bar>((ref) => Bar.map);
