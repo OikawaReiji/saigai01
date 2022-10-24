@@ -9,6 +9,7 @@ enum Pages {
   top,
   signUp,
   login,
+  set,
 }
 
 final authSwitcherPriovider = StateProvider<Pages>((ref) => Pages.top);
