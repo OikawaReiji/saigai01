@@ -43,6 +43,11 @@ dependencies:
   firebase_analytics: ^9.3.8
   cloud_firestore: ^3.5.1
   flutter_svg: ^1.1.5
+  google_maps_flutter: ^2.2.1
+  json_annotation: ^4.7.0
+  freezed_annotation: ^2.2.0
+  geolocator: ^9.0.2
+  flutter_polyline_points: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +61,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.3.2
   flutter_gen_runner: ^5.0.3
+  json_serializable: ^6.5.3
+  freezed: ^2.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -66,6 +73,11 @@ flutter:
   uses-material-design: true 
   assets:    
     - assets/img/
+    - assets/jsons/google_map_style.json
+    - assets/jsons/iwate.geojson
+    # - assets/jsons/icon_focus.png
+
+
 
 flutter_gen:
   output: lib/gen/

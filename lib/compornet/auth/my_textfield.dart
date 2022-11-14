@@ -26,6 +26,7 @@ class MyTextfield extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(100))),
       child: Center(
         child: TextFormField(
+          keyboardType: TextInputType.emailAddress,
           controller: controller,
           style: const TextStyle(fontSize: 25, color: Colors.white),
           decoration: InputDecoration(

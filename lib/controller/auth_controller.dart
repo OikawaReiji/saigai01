@@ -42,6 +42,8 @@ class AuthController extends StateNotifier<User?> {
     }
   }
 
+  void showToast(String flg) {}
+
   Future<void> signin(
     String email,
     String password,
