@@ -23,6 +23,7 @@ class PageRoot extends HookConsumerWidget {
     ];
 
     return Scaffold(
+      backgroundColor: HexColor("#3F3F3F"),
       body: bar[pageRootState.index],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {

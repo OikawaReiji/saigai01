@@ -40,21 +40,6 @@ class Set extends HookConsumerWidget {
                   ),
                 ],
               ),
-              // child: Column(
-              //   children: [
-              //     //アイコンの設定
-              //     Container(
-              //       //アイコンの縦幅・横幅
-              //       height: 100,
-              //       width: 100,
-              //       margin: const EdgeInsets.only(top: 200),
-              //       decoration: const BoxDecoration(
-              //         color: Colors.red,
-              //         shape: BoxShape.circle,
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ),
           ],
         ),

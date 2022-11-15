@@ -22,3 +22,9 @@ enum Bar {
 }
 
 final pageRootProvider = StateProvider<Bar>((ref) => Bar.map);
+
+enum Accounts {
+  account,
+}
+
+final accountRootProvider = StateProvider<Accounts>((ref) => Accounts.account);
