@@ -20,6 +20,7 @@ enum Pages {
   top,
   signUp,
   login,
+  set,
 }
 
 final authSwitcherPriovider = StateProvider<Pages>((ref) => Pages.top);
@@ -33,6 +34,11 @@ enum Bar {
 
 final pageRootProvider = StateProvider<Bar>((ref) => Bar.map);
 
+enum Accounts {
+  account,
+}
+
+final accountRootProvider = StateProvider<Accounts>((ref) => Accounts.account);
 final mapControllerProvider =
     StateNotifierProvider<MapController, AsyncValue<MapState>>(
         (ref) => MapController(ref));
@@ -63,3 +69,4 @@ final polylineControllerProvider =
         (ref) => PolylineController(ref));
 
 final navigatingShellterProvider = StateProvider<Features?>((ref) => null);
+

@@ -68,6 +68,7 @@ class AuthRepositoryImple implements AuthRepository {
     }
   }
 
+  @override
   Future signOut() async {
     try {
       await ref.read(firebaseAuthProvider).signOut();
