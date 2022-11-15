@@ -16,13 +16,14 @@ class PageRoot extends HookConsumerWidget {
     final pageRootController = ref.watch(pageRootProvider.notifier); //値の変更
 
     final List<Widget> bar = [
-      mappage(),
-      public_offpage(),
-      emoji_peoplepage(),
-      settingspage(),
+      const MapPage(),
+      const public_offpage(),
+      const emoji_peoplepage(),
+      const settingspage(),
     ];
 
     return Scaffold(
+      backgroundColor: HexColor("#3F3F3F"),
       body: bar[pageRootState.index],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
@@ -30,22 +31,22 @@ class PageRoot extends HookConsumerWidget {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.map), //マップのアイコン
+            icon: const Icon(Icons.map), //マップのアイコン
             label: "",
             backgroundColor: HexColor("#3E3C3C"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.public_off), //災害情報のアイコン
+            icon: const Icon(Icons.public_off), //災害情報のアイコン
             label: "",
             backgroundColor: HexColor("#3E3C3C"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_people), //フレンド一覧のアイコン
+            icon: const Icon(Icons.emoji_people), //フレンド一覧のアイコン
             label: "",
             backgroundColor: HexColor("#3E3C3C"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings), //設定画面のアイコン
+            icon: const Icon(Icons.settings), //設定画面のアイコン
             label: "",
             backgroundColor: HexColor("#3E3C3C"),
           )
