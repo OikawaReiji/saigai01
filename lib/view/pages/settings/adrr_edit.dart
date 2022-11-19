@@ -35,8 +35,8 @@ class addr_edit extends HookConsumerWidget {
                         );
                       },
                       child: Row(
-                        children: [
-                          const Text("戻る",
+                        children: const [
+                          Text("戻る",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20)),
                         ],
