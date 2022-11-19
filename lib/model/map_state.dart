@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:saigai01/model/shellter.dart';
 
 part 'map_state.freezed.dart';
 part 'map_state.g.dart';

@@ -1,15 +1,11 @@
-import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../constant/hex_color.dart';
-import '../../model/features.dart';
 import '../../model/map_state.dart';
 import '../../model/shellter.dart';
 import '../../provider/general_provider.dart';
-import '../../repository/polyline_repository.dart';
 import '../../view/pages/map/shellter_detail.dart';
 
 class BottomPanel extends HookConsumerWidget {

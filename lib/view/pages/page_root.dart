@@ -19,7 +19,7 @@ class PageRoot extends HookConsumerWidget {
       const MapPage(),
       const public_offpage(),
       const emoji_peoplepage(),
-      const settingspage(),
+      const SettingPage(),
     ];
 
     return Scaffold(

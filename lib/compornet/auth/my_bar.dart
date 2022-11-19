@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MyBar extends StatelessWidget {
   const MyBar({
@@ -20,25 +18,25 @@ class MyBar extends StatelessWidget {
       height: 55,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       margin: const EdgeInsets.only(bottom: 5),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 0, 0, 0),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 0, 0, 0),
       ),
       child: Row(
         children: [
           Icon(
             icon,
             size: 40,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
           ),
-          SizedBox(
+          const SizedBox(
             width: 30,
           ),
-          Text(text, style: TextStyle(color: Colors.white, fontSize: 25)),
-          Spacer(),
+          Text(text, style: const TextStyle(color: Colors.white, fontSize: 25)),
+          const Spacer(),
           Icon(
             icon2,
             size: 30,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
           ),
         ],
       ),

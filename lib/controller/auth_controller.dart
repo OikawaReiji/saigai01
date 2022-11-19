@@ -50,10 +50,6 @@ class AuthController extends StateNotifier<User?> {
     ValueNotifier<bool> loading,
   ) async {
     try {
-      final flg = await ref
-          .read(authRepositoryProvider)
-          .signInWithEmail(email, password);
-
       loading.value = false;
     } catch (e) {
       loading.value = false;
@@ -62,9 +58,7 @@ class AuthController extends StateNotifier<User?> {
   }
 
   Future<void> signout() async {
-    try {
-      final flg = await ref.read(authRepositoryProvider).signOut();
-    } catch (e) {
+    try {} catch (e) {
       debugPrint(e.toString());
     }
   }

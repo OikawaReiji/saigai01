@@ -1,12 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/constant/hex_color.dart';
-import 'package:flutter/material.dart';
-
-import '../../../gen/assets.gen.dart';
-import '../../../provider/general_provider.dart';
 
 class DropdownButtonMenu extends StatefulWidget {
   const DropdownButtonMenu({Key? key}) : super(key: key);
@@ -21,8 +15,8 @@ class _DropdownButtonMenuState extends State<DropdownButtonMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      decoration: InputDecoration(
+      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      decoration: const InputDecoration(
         filled: true,
         fillColor: Color.fromARGB(255, 62, 60, 60),
         prefixIcon: Icon(
@@ -82,10 +76,6 @@ class profile extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
-    final authPageStateController =
-        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
-
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       body: SafeArea(
@@ -104,7 +94,7 @@ class profile extends HookConsumerWidget {
                             color: Color.fromARGB(0, 62, 60, 60)),
                         child: Row(
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             InkWell(
@@ -113,7 +103,7 @@ class profile extends HookConsumerWidget {
                                   context,
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 '戻る',
                                 style: TextStyle(
                                     fontSize: 20, color: Colors.white),
@@ -124,7 +114,7 @@ class profile extends HookConsumerWidget {
                       ),
                       Column(
                         children: [
-                          Container(
+                          SizedBox(
                             height: 130,
                             child: Stack(
                               children: [
@@ -139,14 +129,14 @@ class profile extends HookConsumerWidget {
                                   ),
                                 ),
                                 Align(
-                                  alignment: Alignment(-0.8, 0.8),
+                                  alignment: const Alignment(-0.8, 0.8),
                                   child: Container(
                                     width: 90,
                                     height: 90,
                                     decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(100),
-                                        image: DecorationImage(
+                                        image: const DecorationImage(
                                           image: NetworkImage(
                                               "https://pbs.twimg.com/profile_images/1476930792404426755/TKHWR94S_400x400.jpg"),
                                         )),
@@ -161,28 +151,28 @@ class profile extends HookConsumerWidget {
                             decoration: const BoxDecoration(
                               color: Color.fromARGB(255, 0, 0, 0),
                             ),
-                            alignment: Alignment(-0.5, 0.8),
-                            child: Text(
+                            alignment: const Alignment(-0.5, 0.8),
+                            child: const Text(
                               '仮ノ名前',
                               style:
                                   TextStyle(fontSize: 22, color: Colors.white),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Column(
                             children: [
                               Container(
-                                alignment: Alignment(-0.8, 0.8),
-                                child: Text("自己紹介",
+                                alignment: const Alignment(-0.8, 0.8),
+                                child: const Text("自己紹介",
                                     style: TextStyle(
                                         color: Color.fromARGB(
                                             255, 255, 255, 255))),
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Container(
@@ -190,10 +180,10 @@ class profile extends HookConsumerWidget {
                             height: 200,
                             padding: const EdgeInsets.symmetric(horizontal: 30),
                             margin: const EdgeInsets.only(bottom: 15),
-                            decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 62, 60, 60),
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(30))),
+                            decoration: const BoxDecoration(
+                                color: Color.fromARGB(255, 62, 60, 60),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30))),
                             child: TextFormField(
                               keyboardType: TextInputType.multiline,
                               maxLines: 20,
@@ -202,8 +192,8 @@ class profile extends HookConsumerWidget {
                                   fontSize: 24,
                                   color: Colors.white,
                                   height: 1.2),
-                              decoration: InputDecoration(
-                                  hintStyle: const TextStyle(
+                              decoration: const InputDecoration(
+                                  hintStyle: TextStyle(
                                       color:
                                           Color.fromARGB(255, 255, 255, 255)),
                                   border: InputBorder.none,
@@ -213,16 +203,16 @@ class profile extends HookConsumerWidget {
                           Column(
                             children: [
                               Container(
-                                alignment: Alignment(-0.8, 0.8),
-                                child: Text("ステータス",
+                                alignment: const Alignment(-0.8, 0.8),
+                                child: const Text("ステータス",
                                     style: TextStyle(
                                         color: Color.fromARGB(
                                             255, 255, 255, 255))),
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
+                          const Padding(
+                            padding: EdgeInsets.all(20.0),
                             child: Center(
                               child: DropdownButtonMenu(),
                             ),

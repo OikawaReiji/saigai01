@@ -101,13 +101,13 @@ class RoutePanel extends HookConsumerWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () async {
-                              // await mapTest.initNavigation(
-                              //   googleMapState!,
-                              //   LatLng(
-                              //     myLocation.latitude,
-                              //     myLocation.longitude,
-                              //   ),
-                              // );
+                              await mapTest.initNavigation(
+                                googleMapState!,
+                                LatLng(
+                                  myLocation.latitude,
+                                  myLocation.longitude,
+                                ),
+                              );
                               mapViewController.state = MapNavi.navigation;
                             },
                             child: Container(

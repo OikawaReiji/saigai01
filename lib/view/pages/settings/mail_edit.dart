@@ -1,22 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/compornet/edit_bar.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
-import 'package:saigai01/view/pages/settings/notice.dart';
 
-import '../../../provider/general_provider.dart';
-
-class mail_edit extends HookConsumerWidget {
-  const mail_edit({super.key});
+class MailEdit extends HookConsumerWidget {
+  const MailEdit({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
-    final authPageStateController =
-        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
-
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       body: SafeArea(
@@ -28,12 +20,12 @@ class mail_edit extends HookConsumerWidget {
                 height: 80,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 margin: const EdgeInsets.only(bottom: 5),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 62, 60, 60),
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 62, 60, 60),
                 ),
                 child: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     InkWell(
@@ -43,17 +35,17 @@ class mail_edit extends HookConsumerWidget {
                         );
                       },
                       child: Row(
-                        children: [
+                        children: const [
                           Text("戻る",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20)),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 25,
                     ),
-                    Text("メールアドレスの変更",
+                    const Text("メールアドレスの変更",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -61,23 +53,21 @@ class mail_edit extends HookConsumerWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 '新しいメールアドレスを入力して下さい',
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Container(
-                child: edit_bar(),
-              ),
-              SizedBox(
+              const EditBar(),
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -85,8 +75,8 @@ class mail_edit extends HookConsumerWidget {
                 height: 40,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 margin: const EdgeInsets.only(bottom: 5),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 62, 60, 60),
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 62, 60, 60),
                 ),
                 child: Row(
                   children: [
@@ -95,11 +85,11 @@ class mail_edit extends HookConsumerWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => accountpage(),
+                            builder: (context) => const AccountPage(),
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         '　変更',
                         style: TextStyle(
                           fontSize: 20,

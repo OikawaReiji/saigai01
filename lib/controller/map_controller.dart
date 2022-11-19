@@ -24,17 +24,17 @@ class MapController extends StateNotifier<AsyncValue<MapState>> {
     });
   }
 
-  // Future<void> initNavigation(
-  //   GoogleMapController mapController,
-  //   LatLng target,
-  // ) async {
-  //   await mapController.animateCamera(
-  //     CameraUpdate.newLatLngZoom(
-  //       target,
-  //       18,
-  //     ),
-  //   );
-  // }
+  Future<void> initNavigation(
+    GoogleMapController mapController,
+    LatLng target,
+  ) async {
+    await mapController.animateCamera(
+      CameraUpdate.newLatLngZoom(
+        target,
+        18,
+      ),
+    );
+  }
 
   Future<void> setCamera(
     LatLng current,

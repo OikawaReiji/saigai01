@@ -30,7 +30,7 @@ class ShellterDetails extends HookConsumerWidget {
         centerTitle: true,
         title: const Text(
           "避難所詳細",
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
             fontSize: 25,
             fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class ShellterDetails extends HookConsumerWidget {
                 width: double.infinity,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                margin: EdgeInsets.only(bottom: 15, top: 20),
+                margin: const EdgeInsets.only(bottom: 15, top: 20),
                 decoration: BoxDecoration(
                   color: Colors.black,
                   border: Border.all(
@@ -114,7 +114,7 @@ class ShellterDetails extends HookConsumerWidget {
                 width: double.infinity,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                margin: EdgeInsets.only(bottom: 50),
+                margin: const EdgeInsets.only(bottom: 50),
                 decoration: BoxDecoration(
                   color: Colors.black,
                   border: Border.all(

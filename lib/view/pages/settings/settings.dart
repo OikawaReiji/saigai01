@@ -1,38 +1,27 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/compornet/auth/my_bar.dart';
-import 'package:saigai01/compornet/auth/my_textfield.dart';
-import 'package:saigai01/view/auth/Top.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
 import 'package:saigai01/view/pages/settings/notice.dart';
 import 'package:saigai01/view/pages/settings/profile.dart';
-
-import '../../../constant/hex_color.dart';
 import '../../../provider/general_provider.dart';
 
-class settingspage extends HookConsumerWidget {
-  const settingspage({super.key});
+class SettingPage extends HookConsumerWidget {
+  const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
-    final authPageStateController =
-        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
     final authController = ref.watch(authControllerProvider.notifier);
 
     return SafeArea(
       child: SizedBox(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 130,
               child: Stack(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 130,
                     child: Stack(
                       children: [
@@ -47,13 +36,13 @@ class settingspage extends HookConsumerWidget {
                           ),
                         ),
                         Align(
-                          alignment: Alignment(-0.8, 0.8),
+                          alignment: const Alignment(-0.8, 0.8),
                           child: Container(
                             width: 90,
                             height: 90,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
-                                image: DecorationImage(
+                                image: const DecorationImage(
                                   image: NetworkImage(
                                       "https://pbs.twimg.com/profile_images/1476930792404426755/TKHWR94S_400x400.jpg"),
                                 )),
@@ -71,20 +60,21 @@ class settingspage extends HookConsumerWidget {
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
-              alignment: Alignment(-0.5, 0.8),
-              child: Text(
+              alignment: const Alignment(-0.5, 0.8),
+              child: const Text(
                 '仮ノ名前',
                 style: TextStyle(fontSize: 22, color: Colors.white),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Container(
-              alignment: Alignment(-0.8, 0.8),
-              child: Text("アカウント設定", style: TextStyle(color: Colors.white)),
+              alignment: const Alignment(-0.8, 0.8),
+              child:
+                  const Text("アカウント設定", style: TextStyle(color: Colors.white)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             InkWell(
@@ -92,11 +82,11 @@ class settingspage extends HookConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => profile(),
+                    builder: (context) => const profile(),
                   ),
                 );
               },
-              child: MyBar(
+              child: const MyBar(
                 text: 'プロフィールの編集',
                 icon: Icons.directions_walk_outlined,
                 icon2: Icons.arrow_forward_ios,
@@ -109,11 +99,11 @@ class settingspage extends HookConsumerWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => accountpage(),
+                        builder: (context) => const AccountPage(),
                       ),
                     );
                   },
-                  child: MyBar(
+                  child: const MyBar(
                     text: 'アカウントの編集',
                     icon: Icons.person_outline,
                     icon2: Icons.arrow_forward_ios,
@@ -125,17 +115,17 @@ class settingspage extends HookConsumerWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => notice(),
+                          builder: (context) => const Notice(),
                         ),
                       );
                     },
-                    child: MyBar(
+                    child: const MyBar(
                       text: '通知の設定',
                       icon: Icons.notification_add,
                       icon2: Icons.arrow_forward_ios,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 70,
                   ),
                   Container(
@@ -143,16 +133,16 @@ class settingspage extends HookConsumerWidget {
                     height: 55,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     margin: const EdgeInsets.only(bottom: 5),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 0, 0, 0),
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
                     child: Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 100,
                         ),
                         GestureDetector(
-                          child: Text('ログアウト',
+                          child: const Text('ログアウト',
                               style:
                                   TextStyle(color: Colors.red, fontSize: 25)),
                           onTap: () async {

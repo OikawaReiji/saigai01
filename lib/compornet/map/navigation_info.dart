@@ -1,15 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../model/map_state.dart';
 import '../../provider/general_provider.dart';
 
 class NavigationInfo extends HookConsumerWidget {
-  const NavigationInfo({super.key, required this.myLocation});
-  final MapState myLocation;
+  const NavigationInfo({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,10 +11,6 @@ class NavigationInfo extends HookConsumerWidget {
     final mapViewController = ref.watch(mapNaviProvider.notifier);
     final navigatingController = ref.watch(navigatingShellterProvider.notifier);
     final polylineController = ref.watch(polylineControllerProvider.notifier);
-    final mapTest = ref.watch(mapControllerProvider.notifier);
-    final googleMapState = ref.watch(googleMapControllerProvider);
-    final location = ref.watch(realTimeLocationCTLProvider);
-
     return mapVeiwState == MapNavi.navigation
         ? Align(
             alignment: const Alignment(0, 1),
