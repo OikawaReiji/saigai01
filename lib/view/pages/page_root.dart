@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/provider/general_provider.dart';
-import 'package:saigai01/view/pages/emoji_people/emoji_people.dart';
+import 'package:saigai01/view/pages/friend/friend.dart';
 import 'package:saigai01/view/pages/map/map.dart';
 import 'package:saigai01/view/pages/public_off/public_off.dart';
 import 'package:saigai01/view/pages/settings/settings.dart';
@@ -18,7 +18,7 @@ class PageRoot extends HookConsumerWidget {
     final List<Widget> bar = [
       const MapPage(),
       const public_offpage(),
-      const emoji_peoplepage(),
+      const Friend(),
       const SettingPage(),
     ];
 

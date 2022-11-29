@@ -30,6 +30,8 @@ class BottomPanel extends HookConsumerWidget {
     final navigatingController = ref.watch(navigatingShellterProvider.notifier);
     final mapTest = ref.watch(mapControllerProvider.notifier);
     final googleMapState = ref.watch(googleMapControllerProvider);
+    final markerCTL = ref.watch(markerControllerProvider.notifier);
+
     return mapVeiwState == MapNavi.list
         ? Align(
             alignment: const Alignment(0, 1),
@@ -41,12 +43,12 @@ class BottomPanel extends HookConsumerWidget {
                 onPageChanged: (index) async {
                   final nextLat =
                       shellterState.features[index].geometry.coordinates;
-
+                  markerCTL.updateMarkerId(nextLat[0].toString());
                   await googleMapState!.animateCamera(
                     CameraUpdate.newCameraPosition(
                       CameraPosition(
                         target: LatLng(nextLat[1], nextLat[0]),
-                        zoom: 15,
+                        zoom: 18,
                       ),
                     ),
                   );
@@ -99,6 +101,9 @@ class BottomPanel extends HookConsumerWidget {
                                   onTap: () async {
                                     mapViewController.state = MapNavi.loading;
                                     navigatingController.state = state;
+                                    debugPrint("目的地までの距離" +
+                                        state.geometry.distance.toString() +
+                                        "m");
 
                                     await polylineController.feachPolyline(
                                       PointLatLng(

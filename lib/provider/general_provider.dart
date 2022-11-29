@@ -4,14 +4,21 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/controller/auth_controller.dart';
 import 'package:saigai01/controller/map_controller.dart';
+import 'package:saigai01/controller/marker_controller.dart';
 import 'package:saigai01/controller/polyline_controller.dart';
 import 'package:saigai01/controller/shellter_controller.dart';
+import 'package:saigai01/model/chat_state.dart';
 import 'package:saigai01/model/features.dart';
 import 'package:saigai01/model/map_state.dart';
+import 'package:saigai01/model/marker_data.dart';
 import 'package:saigai01/model/shellter.dart';
 
+import '../controller/chat_controller.dart';
+import '../controller/friends_controller.dart';
 import '../controller/google_map_controller_controller.dart';
 import '../controller/real_time_location_controller.dart';
+import '../controller/users_controller.dart';
+import '../model/users_state.dart';
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) => AuthController(ref));
@@ -59,7 +66,22 @@ enum MapNavi {
 final mapNaviProvider = StateProvider<MapNavi>((ref) => MapNavi.list);
 
 final polylineControllerProvider =
-    StateNotifierProvider<PolylineController, PolylineResult>(
+    StateNotifierProvider<PolylineController, List<PointLatLng>>(
         (ref) => PolylineController(ref));
 
 final navigatingShellterProvider = StateProvider<Features?>((ref) => null);
+
+final friendsListControllerProvider =
+    StateNotifierProvider<FriendsController, List<UsersState>>(
+        (ref) => FriendsController(ref));
+
+final usersControllerProvider =
+    StateNotifierProvider<UsersController, UsersState?>(
+        (ref) => UsersController(ref));
+
+final chatControllerProvider =
+    StateNotifierProvider.family<ChatController, List<ChatState>, String>(
+        (ref, state) => ChatController(ref, state));
+final markerControllerProvider =
+    StateNotifierProvider<MarkerController, MarkerData?>(
+        (ref) => MarkerController(ref));

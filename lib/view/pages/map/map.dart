@@ -24,7 +24,7 @@ class MapPage extends HookConsumerWidget {
             data.latitude,
             data.longitude,
           ),
-          zoom: 15,
+          zoom: 18,
         );
         final pageController = PageController(
           viewportFraction: 0.94,
@@ -48,7 +48,7 @@ class MapPage extends HookConsumerWidget {
               myLocation: data,
             ),
             const AddressPanel(),
-            NavigationInfo(
+            const NavigationInfo(
                 // myLocation: data,
                 ),
             const Loading(),

@@ -43,11 +43,19 @@ dependencies:
   firebase_analytics: ^9.3.8
   cloud_firestore: ^3.5.1
   flutter_svg: ^1.1.5
-  google_maps_flutter: ^2.2.1
+  google_maps_flutter: ^2.0.5
   json_annotation: ^4.7.0
   freezed_annotation: ^2.2.0
   geolocator: ^9.0.2
   flutter_polyline_points: ^1.0.0
+  qr_flutter: ^4.0.0
+  qr_code_scanner: ^1.0.1
+  fluttertoast: ^8.1.1
+  image_picker: ^0.8.6
+  firebase_storage: ^10.3.11
+  cached_network_image: ^3.2.2
+  scrollable_positioned_list: ^0.3.5
+  widget_marker_google_map: ^0.0.2
 
 dev_dependencies:
   flutter_test:

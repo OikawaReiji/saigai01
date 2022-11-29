@@ -108,7 +108,19 @@ class RoutePanel extends HookConsumerWidget {
                                   myLocation.longitude,
                                 ),
                               );
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => SizedBox(
+                                    child: Center(
+                                      child: const CircularProgressIndicator(),
+                                    ),
+                                  ),
+                                ),
+                              );
+                              await Future.delayed(
+                                  const Duration(milliseconds: 500));
                               mapViewController.state = MapNavi.navigation;
+                              Navigator.pop(context);
                             },
                             child: Container(
                               height: 50,

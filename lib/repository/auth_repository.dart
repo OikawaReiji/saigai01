@@ -61,6 +61,8 @@ class AuthRepositoryImple implements AuthRepository {
         'email': user?.email,
         'name': name,
         'phone': phone,
+        'friends': [],
+        'status': "safety",
       });
     } on FirebaseAuthException catch (e) {
       debugPrint(e.code);

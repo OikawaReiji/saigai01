@@ -1,24 +1,33 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/repository/polyline_repository.dart';
 
-class PolylineController extends StateNotifier<PolylineResult> {
+import '../provider/general_provider.dart';
+
+class PolylineController extends StateNotifier<List<PointLatLng>> {
   final Ref ref;
-  PolylineController(this.ref) : super(PolylineResult()) {
+  PolylineController(this.ref) : super([]) {
     Timer.periodic(const Duration(seconds: 1), (t) async {
-      // if (mapVeiwState == MapNavi.navigation) {
-      //   await feachPolyline(
-      //     PointLatLng(
-      //       location.latitude,
-      //       location.longitude,
-      //     ),
-      //     PointLatLng(
-      //       shellter!.geometry.coordinates[1],
-      //       shellter.geometry.coordinates[0],
-      //     ),
-      //   );
-      // }
+      final mapVeiwState = ref.read(mapNaviProvider);
+
+      if (mapVeiwState == MapNavi.navigation) {
+        final location = ref.read(realTimeLocationCTLProvider);
+        final shellter = ref.read(navigatingShellterProvider);
+        if (location.latitude != 0.0 && location.longitude != 0.0) {
+          await feachPolyline(
+            PointLatLng(
+              location.latitude,
+              location.longitude,
+            ),
+            PointLatLng(
+              shellter!.geometry.coordinates[1],
+              shellter.geometry.coordinates[0],
+            ),
+          );
+        }
+      }
     });
   }
 
@@ -30,6 +39,6 @@ class PolylineController extends StateNotifier<PolylineResult> {
   }
 
   void resetPolyline() {
-    state = PolylineResult();
+    state = [];
   }
 }
