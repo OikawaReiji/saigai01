@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/constant/hex_color.dart';
-
-import '../../model/map_state.dart';
+import '../../model/map/map_state.dart';
 import '../../provider/general_provider.dart';
 
 class RoutePanel extends HookConsumerWidget {
@@ -16,8 +15,9 @@ class RoutePanel extends HookConsumerWidget {
     final mapViewController = ref.watch(mapNaviProvider.notifier);
     final polylineController = ref.watch(polylineControllerProvider.notifier);
     final navigatingController = ref.watch(navigatingShellterProvider.notifier);
-    final mapTest = ref.watch(mapControllerProvider.notifier);
+    final mapCTL = ref.watch(mapControllerProvider.notifier);
     final googleMapState = ref.watch(googleMapControllerProvider);
+    final matrixState = ref.watch(matrixControllerProvider);
 
     return mapVeiwState == MapNavi.route
         ? Align(
@@ -41,22 +41,22 @@ class RoutePanel extends HookConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
+                      text: TextSpan(
+                        style: const TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                         children: [
                           TextSpan(
-                            text: "15分",
-                            style: TextStyle(
+                            text: "${matrixState.duration.value / 60}分",
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           TextSpan(
-                            text: "(1.25km)",
-                            style: TextStyle(
+                            text: "(${matrixState.distance.text})",
+                            style: const TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
                             ),
@@ -101,26 +101,28 @@ class RoutePanel extends HookConsumerWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () async {
-                              await mapTest.initNavigation(
+                              await mapCTL.initNavigation(
                                 googleMapState!,
                                 LatLng(
                                   myLocation.latitude,
                                   myLocation.longitude,
                                 ),
-                              );
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => SizedBox(
-                                    child: Center(
-                                      child: const CircularProgressIndicator(),
+                                () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => const SizedBox(
+                                        child: Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                  );
+                                },
+                                () {
+                                  Navigator.pop(context);
+                                },
                               );
-                              await Future.delayed(
-                                  const Duration(milliseconds: 500));
                               mapViewController.state = MapNavi.navigation;
-                              Navigator.pop(context);
                             },
                             child: Container(
                               height: 50,

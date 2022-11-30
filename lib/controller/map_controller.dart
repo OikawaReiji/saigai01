@@ -2,9 +2,8 @@ import 'dart:async';
 import 'dart:math';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:saigai01/model/map_state.dart';
 import 'package:saigai01/repository/map_repository.dart';
-
+import '../model/map/map_state.dart';
 import '../provider/general_provider.dart';
 
 class MapController extends StateNotifier<AsyncValue<MapState>> {
@@ -28,13 +27,20 @@ class MapController extends StateNotifier<AsyncValue<MapState>> {
   Future<void> initNavigation(
     GoogleMapController mapController,
     LatLng target,
+    Function() loadingFunction,
+    Function() popFunction,
   ) async {
+    // 現在地のフォーカス
     await mapController.animateCamera(
       CameraUpdate.newLatLngZoom(
         target,
         18,
       ),
     );
+    //ロード画面
+    loadingFunction();
+    await Future.delayed(const Duration(milliseconds: 500));
+    popFunction();
   }
 
   Future<void> setCamera(

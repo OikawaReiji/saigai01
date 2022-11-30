@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:saigai01/model/marker_data.dart';
 import 'dart:ui' as ui;
+
+import '../model/map/marker_data.dart';
 
 class MarkerController extends StateNotifier<MarkerData> {
   final Ref ref;

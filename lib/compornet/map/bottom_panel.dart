@@ -3,8 +3,8 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../constant/hex_color.dart';
-import '../../model/map_state.dart';
-import '../../model/shellter.dart';
+import '../../model/map/map_state.dart';
+import '../../model/shellter/shellter.dart';
 import '../../provider/general_provider.dart';
 import '../../view/pages/map/shellter_detail.dart';
 
@@ -31,6 +31,7 @@ class BottomPanel extends HookConsumerWidget {
     final mapTest = ref.watch(mapControllerProvider.notifier);
     final googleMapState = ref.watch(googleMapControllerProvider);
     final markerCTL = ref.watch(markerControllerProvider.notifier);
+    final matrixCTL = ref.watch(matrixControllerProvider.notifier);
 
     return mapVeiwState == MapNavi.list
         ? Align(
@@ -101,11 +102,17 @@ class BottomPanel extends HookConsumerWidget {
                                   onTap: () async {
                                     mapViewController.state = MapNavi.loading;
                                     navigatingController.state = state;
-                                    debugPrint("目的地までの距離" +
-                                        state.geometry.distance.toString() +
-                                        "m");
-
                                     await polylineController.feachPolyline(
+                                      PointLatLng(
+                                        myLocation.latitude,
+                                        myLocation.longitude,
+                                      ),
+                                      PointLatLng(
+                                        state.geometry.coordinates[1],
+                                        state.geometry.coordinates[0],
+                                      ),
+                                    );
+                                    await matrixCTL.fechDistanceMatrix(
                                       PointLatLng(
                                         myLocation.latitude,
                                         myLocation.longitude,

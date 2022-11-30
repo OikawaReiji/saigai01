@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../model/shellter.dart';
+import '../../model/shellter/shellter.dart';
 import '../../provider/general_provider.dart';
 
 class GoogleMapCore extends HookConsumerWidget {
@@ -31,24 +31,27 @@ class GoogleMapCore extends HookConsumerWidget {
       zoomControlsEnabled: false,
       mapType: MapType.normal,
       myLocationEnabled: true,
-      padding: EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 160),
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 160),
       onMapCreated: (GoogleMapController controller) async {
         googleMapCTL.onMapCreated(controller);
       },
-      polylines: {
-        Polyline(
-          width: 5,
-          color: Colors.red,
-          polylineId: const PolylineId("a"),
-          points: List.generate(
-            polyline.length,
-            (index) => LatLng(
-              polyline[index].latitude,
-              polyline[index].longitude,
-            ),
-          ),
-        ),
-      },
+      polylines:
+          mapVeiwState == MapNavi.navigation || mapVeiwState == MapNavi.route
+              ? {
+                  Polyline(
+                    width: 5,
+                    color: Colors.red,
+                    polylineId: const PolylineId("a"),
+                    points: List.generate(
+                      polyline.length,
+                      (index) => LatLng(
+                        polyline[index].latitude,
+                        polyline[index].longitude,
+                      ),
+                    ),
+                  ),
+                }
+              : {},
       markers: mapVeiwState == MapNavi.list
           ? {
               ...shellterState.features.map(

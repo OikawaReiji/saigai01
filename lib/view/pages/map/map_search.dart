@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import '../../../constant/hex_color.dart';
-import '../../../model/shellter.dart';
+import '../../../model/shellter/shellter.dart';
 import '../../../provider/general_provider.dart';
 
 class MapSearch extends HookConsumerWidget {

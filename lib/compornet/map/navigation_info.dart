@@ -11,6 +11,8 @@ class NavigationInfo extends HookConsumerWidget {
     final mapViewController = ref.watch(mapNaviProvider.notifier);
     final navigatingController = ref.watch(navigatingShellterProvider.notifier);
     final polylineController = ref.watch(polylineControllerProvider.notifier);
+    final matrixState = ref.watch(matrixControllerProvider);
+
     return mapVeiwState == MapNavi.navigation
         ? Align(
             alignment: const Alignment(0, 1),
@@ -99,9 +101,9 @@ class NavigationInfo extends HookConsumerWidget {
                         ),
                       ),
                       child: Row(
-                        children: const [
+                        children: [
                           Text(
-                            "25min",
+                            matrixState.duration.text,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 25,
@@ -110,7 +112,7 @@ class NavigationInfo extends HookConsumerWidget {
                           ),
                           SizedBox(width: 25),
                           Text(
-                            "5km",
+                            matrixState.distance.text,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 25,
