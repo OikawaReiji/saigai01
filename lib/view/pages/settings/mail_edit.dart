@@ -5,6 +5,7 @@ import 'package:saigai01/compornet/edit_bar.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
 import 'package:saigai01/view/pages/settings/notice.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../provider/general_provider.dart';
 
@@ -14,8 +15,11 @@ class mail_edit extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    final authPageStateController =
-        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
+    final authPageStateController = ref.watch(authSwitcherPriovider.notifier);
+    final userState = ref.watch(userControllerProvider); //変更　関数の実行
+    final _editController = TextEditingController();
+    String _mail = "";
+    String _docid = userState?.uid ?? "ななし";
 
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
@@ -75,7 +79,28 @@ class mail_edit extends HookConsumerWidget {
                 height: 30,
               ),
               Container(
-                child: edit_bar(),
+                width: 300,
+                height: 60,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.only(bottom: 15),
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 62, 60, 60),
+                    borderRadius: const BorderRadius.all(Radius.circular(5))),
+                child: Center(
+                  child: TextFormField(
+                    autofocus: true,
+                    textAlign: TextAlign.center,
+                    onChanged: (value) {
+                      _mail = value;
+                    },
+                    style: const TextStyle(fontSize: 25, color: Colors.white),
+                    decoration: InputDecoration(
+                        hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                  ),
+                ),
               ),
               SizedBox(
                 height: 10,
@@ -92,6 +117,11 @@ class mail_edit extends HookConsumerWidget {
                   children: [
                     InkWell(
                       onTap: () {
+                        FirebaseFirestore.instance
+                            .collection('user')
+                            .doc(_docid)
+                            .update({'email': _mail});
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(

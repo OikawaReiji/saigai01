@@ -10,10 +10,29 @@ class notice extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
-    final authPageStateController =
-        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
+    );
+  }
+}
 
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var quake = false;
+  var friend = false;
+
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       body: SafeArea(
@@ -55,6 +74,86 @@ class notice extends HookConsumerWidget {
                           color: Colors.white,
                           fontSize: 25,
                         )),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Container(
+                width: double.infinity,
+                height: 75,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 62, 60, 60),
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text("地震速報",
+                        style: TextStyle(color: Colors.white, fontSize: 25)),
+                    SizedBox(
+                      width: 140,
+                    ),
+                    Transform.scale(
+                      scale: 1.3,
+                      child: CupertinoSwitch(
+                        value: quake,
+                        onChanged: (bool? value) {
+                          if (value != null) {
+                            setState(
+                              () {
+                                quake = value;
+                                print("$quake");
+                              },
+                            );
+                          }
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: double.infinity,
+                height: 75,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                margin: const EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 62, 60, 60),
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text("フレンド通知",
+                        style: TextStyle(color: Colors.white, fontSize: 25)),
+                    SizedBox(
+                      width: 90,
+                    ),
+                    Transform.scale(
+                      scale: 1.3,
+                      child: CupertinoSwitch(
+                        value: friend,
+                        onChanged: (bool? value) {
+                          if (value != null) {
+                            setState(
+                              () {
+                                friend = value;
+                                print("$friend");
+                              },
+                            );
+                          }
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
