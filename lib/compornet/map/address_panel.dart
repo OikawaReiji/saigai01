@@ -9,10 +9,9 @@ class AddressPanel extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mapVeiwState = ref.watch(mapNaviProvider);
-    final mapViewController = ref.watch(mapNaviProvider.notifier);
     final navigatingShellter = ref.watch(navigatingShellterProvider);
 
-    return mapVeiwState == MapNavi.navigation || mapVeiwState == MapNavi.route
+    return mapVeiwState == MapNavi.route
         ? Align(
             alignment: const Alignment(0, -1),
             child: SafeArea(

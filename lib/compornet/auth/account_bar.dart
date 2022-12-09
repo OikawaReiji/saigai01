@@ -21,24 +21,25 @@ class AccountBar extends StatelessWidget {
       height: 55,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       margin: const EdgeInsets.only(bottom: 5),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 62, 60, 60),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 62, 60, 60),
       ),
       child: Row(
         children: [
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Text(text, style: TextStyle(color: Colors.white, fontSize: 15)),
-          SizedBox(
+          Text(text, style: const TextStyle(color: Colors.white, fontSize: 15)),
+          const SizedBox(
             width: 90,
           ),
-          Text(text2, style: TextStyle(color: Colors.white, fontSize: 10)),
-          Spacer(),
+          Text(text2,
+              style: const TextStyle(color: Colors.white, fontSize: 10)),
+          const Spacer(),
           Icon(
             icon,
             size: 30,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
           ),
         ],
       ),

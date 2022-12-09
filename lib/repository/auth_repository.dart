@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/provider/firebase_auth_provider.dart';
@@ -20,6 +20,7 @@ abstract class AuthRepository {
 class AuthRepositoryImple implements AuthRepository {
   final Ref ref;
   CollectionReference? storeCollectionReference;
+  final messaging = FirebaseMessaging.instance;
 
   AuthRepositoryImple(this.ref) {
     storeCollectionReference =
@@ -57,11 +58,16 @@ class AuthRepositoryImple implements AuthRepository {
     User? user = ref.read(firebaseAuthProvider).currentUser;
 
     try {
+      final token = await messaging.getToken();
+
       await storeCollectionReference?.doc(user?.uid).set({
         'uid': user?.uid,
         'email': user?.email,
         'name': name,
         'phone': phone,
+        'friends': [],
+        'status': "safety",
+        'token': token,
       });
     } on FirebaseAuthException catch (e) {
       debugPrint(e.code);

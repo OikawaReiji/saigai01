@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import '../repository/auth_repository.dart';
 
 class AuthController extends StateNotifier<User?> {
@@ -16,7 +14,9 @@ class AuthController extends StateNotifier<User?> {
         .read(authRepositoryProvider)
         .authStateChange
         .listen((user) => state = user);
+    debugPrint("君成田");
   }
+
   @override
   void dispose() {
     _authStateChangesSubscription?.cancel();
@@ -50,10 +50,6 @@ class AuthController extends StateNotifier<User?> {
     ValueNotifier<bool> loading,
   ) async {
     try {
-      final flg = await ref
-          .read(authRepositoryProvider)
-          .signInWithEmail(email, password);
-
       loading.value = false;
     } catch (e) {
       loading.value = false;
@@ -63,7 +59,7 @@ class AuthController extends StateNotifier<User?> {
 
   Future<void> signout() async {
     try {
-      final flg = await ref.read(authRepositoryProvider).signOut();
+      await ref.read(authRepositoryProvider).signOut();
     } catch (e) {
       debugPrint(e.toString());
     }

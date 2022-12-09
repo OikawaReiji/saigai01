@@ -1,12 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:saigai01/model/features.dart';
-
 import '../../../constant/hex_color.dart';
-import '../../../model/shellter.dart';
+import '../../../model/shellter/shellter.dart';
 import '../../../provider/general_provider.dart';
 
 class MapSearch extends HookConsumerWidget {
@@ -23,7 +20,6 @@ class MapSearch extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final googleMapCTL = ref.watch(googleMapControllerProvider.notifier);
     final googleMapState = ref.watch(googleMapControllerProvider);
 
     Future<void> test(Function() function, String name) async {

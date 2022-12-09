@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,7 +16,6 @@ class MapPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mapState = ref.watch(mapControllerProvider);
-
     return mapState.when(
       data: (data) {
         final shellterState = ref.watch(shellterControllerProvider(data));
@@ -26,7 +24,7 @@ class MapPage extends HookConsumerWidget {
             data.latitude,
             data.longitude,
           ),
-          zoom: 15,
+          zoom: 18,
         );
         final pageController = PageController(
           viewportFraction: 0.94,
@@ -50,9 +48,9 @@ class MapPage extends HookConsumerWidget {
               myLocation: data,
             ),
             const AddressPanel(),
-            NavigationInfo(
-              myLocation: data,
-            ),
+            const NavigationInfo(
+                // myLocation: data,
+                ),
             const Loading(),
             RoutePanel(
               myLocation: data,

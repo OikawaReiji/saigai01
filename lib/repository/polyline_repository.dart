@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -6,7 +5,7 @@ final polylineRepository = Provider<FeachPolylineRepository>(
     (ref) => FeachPolylineRepositoryImple(ref));
 
 abstract class FeachPolylineRepository {
-  Future<PolylineResult> getPolyline(
+  Future<List<PointLatLng>> getPolyline(
       PointLatLng origin, PointLatLng destination);
 }
 
@@ -17,7 +16,7 @@ class FeachPolylineRepositoryImple implements FeachPolylineRepository {
   PolylinePoints polylinePoints = PolylinePoints();
 
   @override
-  Future<PolylineResult> getPolyline(
+  Future<List<PointLatLng>> getPolyline(
       PointLatLng origin, PointLatLng destination) async {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       "AIzaSyBt5OVfrvXEdWE_pMMVsuIyl75-6EN4IHE",
@@ -27,7 +26,6 @@ class FeachPolylineRepositoryImple implements FeachPolylineRepository {
       avoidTolls: true,
       travelMode: TravelMode.walking,
     );
-
-    return result;
+    return result.points;
   }
 }

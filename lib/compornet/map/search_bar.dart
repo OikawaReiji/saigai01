@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../model/shellter.dart';
+import '../../model/shellter/shellter.dart';
 import '../../provider/general_provider.dart';
 import '../../view/pages/map/map_search.dart';
 
@@ -23,7 +20,6 @@ class SearchBar extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final nameList = shellterState.features.map((e) => e.properties.name);
     final mapVeiwState = ref.watch(mapNaviProvider);
-    final mapViewController = ref.watch(mapNaviProvider.notifier);
     return mapVeiwState == MapNavi.list
         ? Align(
             alignment: const Alignment(0, -1),
@@ -70,6 +66,6 @@ class SearchBar extends HookConsumerWidget {
               ),
             ),
           )
-        : SizedBox();
+        : const SizedBox();
   }
 }

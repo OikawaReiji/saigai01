@@ -1,16 +1,13 @@
-import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../constant/hex_color.dart';
-import '../../model/features.dart';
-import '../../model/map_state.dart';
-import '../../model/shellter.dart';
+import '../../model/map/map_state.dart';
+import '../../model/shellter/shellter.dart';
 import '../../provider/general_provider.dart';
-import '../../repository/polyline_repository.dart';
 import '../../view/pages/map/shellter_detail.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class BottomPanel extends HookConsumerWidget {
   const BottomPanel({
@@ -34,6 +31,9 @@ class BottomPanel extends HookConsumerWidget {
     final navigatingController = ref.watch(navigatingShellterProvider.notifier);
     final mapTest = ref.watch(mapControllerProvider.notifier);
     final googleMapState = ref.watch(googleMapControllerProvider);
+    final markerCTL = ref.watch(markerControllerProvider.notifier);
+    final matrixCTL = ref.watch(matrixControllerProvider.notifier);
+
     return mapVeiwState == MapNavi.list
         ? Align(
             alignment: const Alignment(0, 1),
@@ -45,12 +45,12 @@ class BottomPanel extends HookConsumerWidget {
                 onPageChanged: (index) async {
                   final nextLat =
                       shellterState.features[index].geometry.coordinates;
-
+                  markerCTL.updateMarkerId(nextLat[0].toString());
                   await googleMapState!.animateCamera(
                     CameraUpdate.newCameraPosition(
                       CameraPosition(
                         target: LatLng(nextLat[1], nextLat[0]),
-                        zoom: 15,
+                        zoom: 18,
                       ),
                     ),
                   );
@@ -102,9 +102,26 @@ class BottomPanel extends HookConsumerWidget {
                                 child: InkWell(
                                   onTap: () async {
                                     mapViewController.state = MapNavi.loading;
+                                    var connectivityResult =
+                                        await (Connectivity()
+                                            .checkConnectivity());
+                                    if (connectivityResult ==
+                                        ConnectivityResult.none) {
+                                      mapViewController.state = MapNavi.list;
+                                      return;
+                                    }
                                     navigatingController.state = state;
-
                                     await polylineController.feachPolyline(
+                                      PointLatLng(
+                                        myLocation.latitude,
+                                        myLocation.longitude,
+                                      ),
+                                      PointLatLng(
+                                        state.geometry.coordinates[1],
+                                        state.geometry.coordinates[0],
+                                      ),
+                                    );
+                                    await matrixCTL.fechDistanceMatrix(
                                       PointLatLng(
                                         myLocation.latitude,
                                         myLocation.longitude,

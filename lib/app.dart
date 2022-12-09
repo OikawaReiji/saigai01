@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:saigai01/view/pages/friend/chat.dart';
+import 'package:saigai01/view/pages/friend/friend_add.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
-import 'package:saigai01/view/pages/map/map_search.dart';
 import 'package:saigai01/view/pages/map/shellter_detail.dart';
 
-
-import 'view/auth/Top.dart';
+import 'view/auth/top.dart';
 import 'view/auth/login.dart';
 import 'view/auth/Sign.dart';
 import 'view/separate.dart';
-import 'view/auth/Set.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       initialRoute: Separate.id,
       routes: <String, WidgetBuilder>{
@@ -23,8 +23,10 @@ class MyApp extends StatelessWidget {
         Top.id: (BuildContext context) => const Top(),
         Sign.id: (BuildContext context) => const Sign(),
         Separate.id: (BuildContext context) => const Separate(),
-        accountpage.id: (BuildContext context) => const accountpage(),
+        AccountPage.id: (BuildContext context) => const AccountPage(),
         ShellterDetails.id: (BuildContext context) => const ShellterDetails(),
+        FriendAdd.id: (BuildContext context) => FriendAdd(),
+        Chat.id: (BuildContext context) => Chat(),
       },
     );
   }
