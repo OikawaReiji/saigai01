@@ -11,8 +11,8 @@ class PageRoot extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pageRootState = ref.watch(pageRootProvider); //値の参照（参照のみ）
-    final pageRootController = ref.watch(pageRootProvider.notifier); //値の変更
+    final pageRootState = ref.watch(pageRootProvider);
+    final pageRootController = ref.watch(pageRootProvider.notifier);
 
     final List<Widget> bar = [
       const MapPage(),
