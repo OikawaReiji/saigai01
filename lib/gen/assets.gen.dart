@@ -12,16 +12,25 @@ import 'package:flutter/widgets.dart';
 class $AssetsImgGen {
   const $AssetsImgGen();
 
+  /// File path: assets/img/hard.png
+  AssetGenImage get hard => const AssetGenImage('assets/img/hard.png');
+
   /// File path: assets/img/icon_focus.png
   AssetGenImage get iconFocus =>
       const AssetGenImage('assets/img/icon_focus.png');
+
+  /// File path: assets/img/kuga.png
+  AssetGenImage get kuga => const AssetGenImage('assets/img/kuga.png');
 
   /// File path: assets/img/toppage_icon.jpg
   AssetGenImage get toppageIcon =>
       const AssetGenImage('assets/img/toppage_icon.jpg');
 
+  /// File path: assets/img/wa.png
+  AssetGenImage get wa => const AssetGenImage('assets/img/wa.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [iconFocus, toppageIcon];
+  List<AssetGenImage> get values => [hard, iconFocus, kuga, toppageIcon, wa];
 }
 
 class $AssetsJsonsGen {

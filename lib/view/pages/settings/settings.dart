@@ -23,6 +23,8 @@ class settingspage extends HookConsumerWidget {
     final authPageStateController =
         ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
     final authController = ref.watch(authControllerProvider.notifier);
+    final userState = ref.watch(userControllerProvider);
+    final userController = ref.watch(userControllerProvider.notifier);
 
     return SafeArea(
       child: SizedBox(
@@ -36,13 +38,18 @@ class settingspage extends HookConsumerWidget {
                     height: 130,
                     child: Stack(
                       children: [
-                        Container(
-                          height: 130,
-                          width: double.infinity,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://images.prod.hjholdings.tv/d3urerHm/uploads/e38a15bc-26ab-41cb-98c5-a9f0edd65aab.png?w=1600&h=600&p=t"),
+                        InkWell(
+                          onTap: () async {
+                            await userController.getImageFromGallery();
+                          },
+                          child: Container(
+                            height: 130,
+                            width: double.infinity,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://images.prod.hjholdings.tv/d3urerHm/uploads/e38a15bc-26ab-41cb-98c5-a9f0edd65aab.png?w=1600&h=600&p=t"),
+                              ),
                             ),
                           ),
                         ),
@@ -73,8 +80,8 @@ class settingspage extends HookConsumerWidget {
               ),
               alignment: Alignment(-0.5, 0.8),
               child: Text(
-                '仮ノ名前',
-                style: TextStyle(fontSize: 22, color: Colors.white),
+                userState?.name ?? "ななし",
+                style: TextStyle(fontSize: 30, color: Colors.white),
               ),
             ),
             SizedBox(

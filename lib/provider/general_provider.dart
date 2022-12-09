@@ -12,6 +12,8 @@ import 'package:saigai01/model/shellter.dart';
 
 import '../controller/google_map_controller_controller.dart';
 import '../controller/real_time_location_controller.dart';
+import '../controller/user_controller.dart';
+import '../model/user_state.dart';
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) => AuthController(ref));
@@ -20,7 +22,6 @@ enum Pages {
   top,
   signUp,
   login,
-  set,
 }
 
 final authSwitcherPriovider = StateProvider<Pages>((ref) => Pages.top);
@@ -34,11 +35,11 @@ enum Bar {
 
 final pageRootProvider = StateProvider<Bar>((ref) => Bar.map);
 
-enum Accounts {
-  account,
-}
+// enum Accounts {
+//   account,
+// }
 
-final accountRootProvider = StateProvider<Accounts>((ref) => Accounts.account);
+// final accountRootProvider = StateProvider<Accounts>((ref) => Accounts.account);
 final mapControllerProvider =
     StateNotifierProvider<MapController, AsyncValue<MapState>>(
         (ref) => MapController(ref));
@@ -70,3 +71,6 @@ final polylineControllerProvider =
 
 final navigatingShellterProvider = StateProvider<Features?>((ref) => null);
 
+final userControllerProvider =
+    StateNotifierProvider<UserController, UserState?>(
+        (ref) => UserController(ref));
