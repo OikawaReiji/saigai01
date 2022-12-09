@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/provider/general_provider.dart';
-import 'package:saigai01/view/pages/emoji_people/emoji_people.dart';
+import 'package:saigai01/view/pages/friend/friend.dart';
 import 'package:saigai01/view/pages/map/map.dart';
 import 'package:saigai01/view/pages/public_off/quake.dart';
 import 'package:saigai01/view/pages/settings/settings.dart';
@@ -12,14 +11,14 @@ class PageRoot extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pageRootState = ref.watch(pageRootProvider); //値の参照（参照のみ）
-    final pageRootController = ref.watch(pageRootProvider.notifier); //値の変更
+    final pageRootState = ref.watch(pageRootProvider);
+    final pageRootController = ref.watch(pageRootProvider.notifier);
 
     final List<Widget> bar = [
-      mappage(),
-      public_offpage(),
-      emoji_peoplepage(),
-      settingspage(),
+      const MapPage(),
+      const public_offpage(),
+      const Friend(),
+      const SettingPage(),
     ];
 
     return Scaffold(
@@ -29,29 +28,29 @@ class PageRoot extends HookConsumerWidget {
         onTap: (index) {
           pageRootController.state = Bar.values[index];
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.map), //マップのアイコン
+            icon: Icon(Icons.map),
             label: "",
-            backgroundColor: HexColor("#3E3C3C"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.public_off), //災害情報のアイコン
+            icon: Icon(Icons.public_off),
             label: "",
-            backgroundColor: HexColor("#3E3C3C"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_people), //フレンド一覧のアイコン
+            icon: Icon(Icons.emoji_people),
             label: "",
-            backgroundColor: HexColor("#3E3C3C"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings), //設定画面のアイコン
+            icon: Icon(Icons.settings),
             label: "",
-            backgroundColor: HexColor("#3E3C3C"),
           )
         ],
         currentIndex: pageRootState.index,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.white,
+        iconSize: 28,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }

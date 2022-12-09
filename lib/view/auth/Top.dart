@@ -10,9 +10,7 @@ class Top extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authPageState = ref.watch(authSwitcherPriovider); //参照
-    final authPageStateController =
-        ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
+    final authPageStateController = ref.watch(authSwitcherPriovider.notifier);
 
     return Scaffold(
       backgroundColor: HexColor("#3F3F3F"),
@@ -32,7 +30,7 @@ class Top extends HookConsumerWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  margin: EdgeInsets.only(top: 110),
+                  margin: const EdgeInsets.only(top: 110),
                   clipBehavior: Clip.hardEdge,
                   child: Assets.img.toppageIcon.image(
                     //アイコンのstyle

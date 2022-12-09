@@ -11,7 +11,6 @@ class Login extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
     final authPageStateController =
         ref.watch(authSwitcherPriovider.notifier); //変更　関数の実行
     final authController = ref.watch(authControllerProvider.notifier);
@@ -29,7 +28,7 @@ class Login extends HookConsumerWidget {
               child: Stack(
                 children: [
                   Align(
-                    alignment: Alignment(0, -0.5),
+                    alignment: const Alignment(0, -0.5),
                     child: SingleChildScrollView(
                       child: SizedBox(
                         height: 500,

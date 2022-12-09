@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-
 
 class MyTextfield extends StatelessWidget {
   const MyTextfield({
@@ -33,7 +30,7 @@ class MyTextfield extends StatelessWidget {
         child: TextFormField(
           keyboardType: name,
           obscureText: ispassword,
-          controller: controller,
+         controller: controller,
           style: const TextStyle(fontSize: 25, color: Colors.white),
           decoration: InputDecoration(
               icon: icon,
