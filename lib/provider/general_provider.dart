@@ -14,12 +14,14 @@ import '../controller/chat_controller.dart';
 import '../controller/friends_controller.dart';
 import '../controller/google_map_controller_controller.dart';
 import '../controller/real_time_location_controller.dart';
+
 import '../controller/users_controller.dart';
 import '../model/map/map_state.dart';
 import '../model/map/marker_data.dart';
 import '../model/shellter/features.dart';
 import '../model/shellter/shellter.dart';
 import '../model/users_state.dart';
+
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) => AuthController(ref));
@@ -40,6 +42,7 @@ enum Bar {
 }
 
 final pageRootProvider = StateProvider<Bar>((ref) => Bar.map);
+
 
 final mapControllerProvider =
     StateNotifierProvider<MapController, AsyncValue<MapState>>(
@@ -72,6 +75,7 @@ final polylineControllerProvider =
 
 final navigatingShellterProvider = StateProvider<Features?>((ref) => null);
 
+
 final friendsListControllerProvider =
     StateNotifierProvider<FriendsController, List<UsersState>>(
         (ref) => FriendsController(ref));
@@ -90,3 +94,4 @@ final markerControllerProvider =
 final matrixControllerProvider =
     StateNotifierProvider<MatrixController, MatrixState>(
         (ref) => MatrixController(ref));
+

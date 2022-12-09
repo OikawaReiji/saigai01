@@ -1,14 +1,17 @@
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/compornet/setting/edit_bar.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
 
+
 class phone_edit extends HookConsumerWidget {
   const phone_edit({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       body: SafeArea(
@@ -66,8 +69,10 @@ class phone_edit extends HookConsumerWidget {
               const SizedBox(
                 height: 30,
               ),
+
               const EditBar(),
               const SizedBox(
+
                 height: 10,
               ),
               Container(
@@ -88,6 +93,7 @@ class phone_edit extends HookConsumerWidget {
                             builder: (context) => const AccountPage(),
                           ),
                         );
+
                       },
                       child: const Text(
                         '　変更',

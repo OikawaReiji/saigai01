@@ -14,6 +14,7 @@ import '../../../provider/general_provider.dart';
 class Profile extends HookConsumerWidget {
   const Profile({super.key});
 
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const double topWidgetHeight = 150.0;
@@ -303,5 +304,6 @@ class Profile extends HookConsumerWidget {
         ],
       ),
     );
+
   }
 }

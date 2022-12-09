@@ -611,6 +611,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.2"
+
   image_cropper:
     dependency: "direct main"
     description:
@@ -632,6 +633,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.3"
+
   image_picker:
     dependency: "direct main"
     description:

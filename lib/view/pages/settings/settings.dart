@@ -67,6 +67,7 @@ class SettingPage extends HookConsumerWidget {
                                       fontSize: 22, color: Colors.white),
                                   overflow: TextOverflow.ellipsis,
                                 ),
+
                               ),
                             ),
                           ],
@@ -103,6 +104,7 @@ class SettingPage extends HookConsumerWidget {
                             )
                           ],
                         ),
+
                       ),
                       MyBar(
                         text: 'プロフィール編集',

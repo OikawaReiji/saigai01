@@ -40,8 +40,10 @@ class $AssetsImgGen {
   AssetGenImage get wa => const AssetGenImage('assets/img/wa.png');
 
   /// List of all assets
+
   List<AssetGenImage> get values =>
       [hard, iconFocus, iii, kuga, mapIcon, mapIconSelected, toppageIcon, wa];
+
 }
 
 class $AssetsJsonsGen {

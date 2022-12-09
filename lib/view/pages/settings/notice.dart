@@ -7,6 +7,7 @@ class Notice extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       appBar: AppBar(
@@ -29,6 +30,7 @@ class Notice extends HookConsumerWidget {
               '戻る',
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
+
           ),
         ),
       ),

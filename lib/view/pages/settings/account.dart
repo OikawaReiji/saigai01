@@ -12,6 +12,7 @@ class AccountPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       appBar: AppBar(
@@ -50,7 +51,7 @@ class AccountPage extends HookConsumerWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => const MailEdit(),
-                      ),
+
                     );
                   },
                   child: const AccountBar(

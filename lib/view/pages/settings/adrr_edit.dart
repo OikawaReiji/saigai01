@@ -4,11 +4,13 @@ import 'package:saigai01/compornet/setting/edit_bar.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
 
+
 class addr_edit extends HookConsumerWidget {
   const addr_edit({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
       body: SafeArea(
@@ -66,8 +68,10 @@ class addr_edit extends HookConsumerWidget {
               const SizedBox(
                 height: 30,
               ),
+
               const EditBar(),
               const SizedBox(
+
                 height: 10,
               ),
               Container(
@@ -82,6 +86,11 @@ class addr_edit extends HookConsumerWidget {
                   children: [
                     InkWell(
                       onTap: () {
+                        FirebaseFirestore.instance
+                            .collection('user')
+                            .doc(_docid)
+                            .update({'addr': _addr});
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
