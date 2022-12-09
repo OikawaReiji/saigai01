@@ -43,6 +43,7 @@ dependencies:
   firebase_analytics: ^9.3.8
   cloud_firestore: ^3.5.1
   flutter_svg: ^1.1.5
+  fluttertoast: ^8.1.1
 
 dev_dependencies:
   flutter_test:

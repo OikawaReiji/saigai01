@@ -41,6 +41,8 @@ class Sign extends HookConsumerWidget {
                               height: 80,
                             ),
                             MyTextfield(
+                              name: TextInputType.emailAddress,
+                              ispassword: false,
                               title: 'email',
                               icon: const Icon(
                                 Icons.mail,
@@ -50,6 +52,8 @@ class Sign extends HookConsumerWidget {
                               controller: maillContainer,
                             ),
                             MyTextfield(
+                              name: TextInputType.visiblePassword,
+                              ispassword: true,
                               title: 'password',
                               icon: const Icon(
                                 Icons.lock,
@@ -59,6 +63,8 @@ class Sign extends HookConsumerWidget {
                               controller: passContainer,
                             ),
                             MyTextfield(
+                              name: TextInputType.text,
+                              ispassword: false,
                               title: 'name',
                               icon: const Icon(
                                 Icons.badge_outlined,
@@ -68,6 +74,8 @@ class Sign extends HookConsumerWidget {
                               controller: nameContainer,
                             ),
                             MyTextfield(
+                              name: TextInputType.phone,
+                              ispassword: false,
                               title: 'phone',
                               icon: const Icon(
                                 Icons.phone_in_talk,
