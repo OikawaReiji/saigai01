@@ -478,7 +478,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.1.1"
-
   freezed:
     dependency: "direct dev"
     description:
@@ -493,7 +492,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
-
   frontend_server_client:
     dependency: transitive
     description:

@@ -6,6 +6,8 @@ import 'package:saigai01/view/pages/map/map.dart';
 import 'package:saigai01/view/pages/public_off/quake.dart';
 import 'package:saigai01/view/pages/settings/settings.dart';
 
+import '../../constant/hex_color.dart';
+
 class PageRoot extends HookConsumerWidget {
   const PageRoot({super.key});
 
