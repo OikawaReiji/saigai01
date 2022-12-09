@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/provider/general_provider.dart';
 import 'package:saigai01/view/pages/friend/friend.dart';
 import 'package:saigai01/view/pages/map/map.dart';
-import 'package:saigai01/view/pages/public_off/public_off.dart';
+import 'package:saigai01/view/pages/public_off/quake.dart';
 import 'package:saigai01/view/pages/settings/settings.dart';
 
 class PageRoot extends HookConsumerWidget {
@@ -22,6 +22,7 @@ class PageRoot extends HookConsumerWidget {
     ];
 
     return Scaffold(
+      backgroundColor: HexColor("#3f3f3f"),
       body: bar[pageRootState.index],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {

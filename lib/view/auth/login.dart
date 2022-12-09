@@ -38,6 +38,8 @@ class Login extends HookConsumerWidget {
                               height: 80,
                             ),
                             MyTextfield(
+                              name: TextInputType.emailAddress,
+                              ispassword: false,
                               title: 'email',
                               icon: const Icon(
                                 Icons.mail,
@@ -50,6 +52,8 @@ class Login extends HookConsumerWidget {
                               height: 20,
                             ),
                             MyTextfield(
+                              name: TextInputType.visiblePassword,
+                              ispassword: true,
                               title: 'password',
                               icon: const Icon(
                                 Icons.lock,

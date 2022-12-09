@@ -6,10 +6,14 @@ class MyTextfield extends StatelessWidget {
     required this.title,
     required this.icon,
     required this.controller,
+    required this.ispassword,
+    required this.name,
   });
   final String title;
   final Icon icon;
   final TextEditingController controller;
+  final bool ispassword;
+  final TextInputType name;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,9 @@ class MyTextfield extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(100))),
       child: Center(
         child: TextFormField(
-          keyboardType: TextInputType.emailAddress,
-          controller: controller,
+          keyboardType: name,
+          obscureText: ispassword,
+         controller: controller,
           style: const TextStyle(fontSize: 25, color: Colors.white),
           decoration: InputDecoration(
               icon: icon,
