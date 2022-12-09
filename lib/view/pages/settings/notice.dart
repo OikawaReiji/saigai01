@@ -9,49 +9,26 @@ class Notice extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: HexColor("#615C5C"),
-      body: SafeArea(
-        child: SizedBox(
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                height: 80,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                margin: const EdgeInsets.only(bottom: 5),
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 62, 60, 60),
-                ),
-                child: Row(
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(
-                          context,
-                        );
-                      },
-                      child: Row(
-                        children: const [
-                          Text("戻る",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20)),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 85,
-                    ),
-                    const Text("通知",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                        )),
-                  ],
-                ),
-              ),
-            ],
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 62, 60, 60),
+        centerTitle: true,
+        title: Text(
+          "通知",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+          ),
+        ),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Center(
+            child: Text(
+              '戻る',
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
           ),
         ),
       ),

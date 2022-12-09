@@ -15,7 +15,7 @@ class Chat extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final args = ModalRoute.of(context)!.settings.arguments as ChatArgment;
-    debugPrint("チャットページ遷移" + args.usersState.uid);
+    debugPrint("チャットページ遷移${args.usersState.uid}");
     final chatState = ref.watch(chatControllerProvider(args.usersState.uid));
     final textController = useTextEditingController(text: "");
     final textFlg = useState(false);
@@ -42,6 +42,7 @@ class Chat extends HookConsumerWidget {
         children: [
           Expanded(
               child: SingleChildScrollView(
+            reverse: true,
             child: Column(
               children: List.generate(
                 chatState.length,

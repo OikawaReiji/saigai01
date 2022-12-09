@@ -104,16 +104,16 @@ class NavigationInfo extends HookConsumerWidget {
                         children: [
                           Text(
                             matrixState.duration.text,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(width: 25),
+                          const SizedBox(width: 25),
                           Text(
                             matrixState.distance.text,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,

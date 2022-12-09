@@ -7,6 +7,7 @@ import '../../model/map/map_state.dart';
 import '../../model/shellter/shellter.dart';
 import '../../provider/general_provider.dart';
 import '../../view/pages/map/shellter_detail.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class BottomPanel extends HookConsumerWidget {
   const BottomPanel({
@@ -101,6 +102,14 @@ class BottomPanel extends HookConsumerWidget {
                                 child: InkWell(
                                   onTap: () async {
                                     mapViewController.state = MapNavi.loading;
+                                    var connectivityResult =
+                                        await (Connectivity()
+                                            .checkConnectivity());
+                                    if (connectivityResult ==
+                                        ConnectivityResult.none) {
+                                      mapViewController.state = MapNavi.list;
+                                      return;
+                                    }
                                     navigatingController.state = state;
                                     await polylineController.feachPolyline(
                                       PointLatLng(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:saigai01/compornet/edit_bar.dart';
+import 'package:saigai01/compornet/setting/edit_bar.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/view/pages/settings/account.dart';
 

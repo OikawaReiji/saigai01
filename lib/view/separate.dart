@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/provider/general_provider.dart';
@@ -15,20 +16,39 @@ class Separate extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authControllerProvider);
     final authPageState = ref.watch(authSwitcherPriovider);
+    final messaging = FirebaseMessaging.instance;
 
-    if (authState == null) {
-      switch (authPageState) {
-        case Pages.top:
-          return const Top();
-        case Pages.signUp:
-          return const Sign();
-        case Pages.login:
-          return const Login();
-        default:
-          return const Top();
-      }
-    } else {
-      return const PageRoot();
-    }
+    return FutureBuilder(
+      future: Future<void>(
+        () async {
+          debugPrint("メッセージ送信の許可取り");
+          await messaging.requestPermission(
+            alert: true,
+            announcement: false,
+            badge: true,
+            carPlay: false,
+            criticalAlert: false,
+            provisional: false,
+            sound: true,
+          );
+        },
+      ),
+      builder: ((context, snapshot) {
+        if (authState == null) {
+          switch (authPageState) {
+            case Pages.top:
+              return const Top();
+            case Pages.signUp:
+              return const Sign();
+            case Pages.login:
+              return const Login();
+            default:
+              return const Top();
+          }
+        } else {
+          return const PageRoot();
+        }
+      }),
+    );
   }
 }

@@ -19,6 +19,9 @@ class $AssetsImgGen {
   AssetGenImage get iconFocus =>
       const AssetGenImage('assets/img/icon_focus.png');
 
+  /// File path: assets/img/iii.jpg
+  AssetGenImage get iii => const AssetGenImage('assets/img/iii.jpg');
+
   /// File path: assets/img/kuga.png
   AssetGenImage get kuga => const AssetGenImage('assets/img/kuga.png');
 
@@ -38,7 +41,7 @@ class $AssetsImgGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [hard, iconFocus, kuga, mapIcon, mapIconSelected, toppageIcon, wa];
+      [hard, iconFocus, iii, kuga, mapIcon, mapIconSelected, toppageIcon, wa];
 }
 
 class $AssetsJsonsGen {

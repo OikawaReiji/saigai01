@@ -11,9 +11,12 @@ class UsersState with _$UsersState {
     @Default("") String email,
     @Default("") String uid,
     @Default("") String name,
+    @Default("") String address,
     @Default([]) List friends,
     @Default("") String phone,
     @Default("") String status,
+    @Default("") String profileImage,
+    @Default("") String headerImage,
   }) = _UsersState;
 
   factory UsersState.fromJson(Map<String, dynamic> json) =>

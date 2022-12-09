@@ -49,7 +49,8 @@ class RoutePanel extends HookConsumerWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: "${matrixState.duration.value / 60}分",
+                            text:
+                                "${(matrixState.duration.value / 60).ceil()}分",
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),

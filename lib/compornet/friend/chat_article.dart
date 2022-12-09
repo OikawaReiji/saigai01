@@ -23,18 +23,27 @@ class ChatArticle extends HookConsumerWidget {
 
     return Column(
       children: [
+        const SizedBox(height: 15),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 60,
-                height: 60,
-                margin: const EdgeInsets.only(right: 15),
-                decoration: const BoxDecoration(
+                width: 55,
+                height: 55,
+                margin: const EdgeInsets.only(right: 10),
+                decoration: BoxDecoration(
+                  color: Colors.black,
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  image: sender.profileImage != ""
+                      ? DecorationImage(
+                          image: NetworkImage(sender.profileImage),
+                        )
+                      : const DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: AssetImage("assets/img/iii.jpg"),
+                        ),
                 ),
               ),
               Expanded(
@@ -46,7 +55,7 @@ class ChatArticle extends HookConsumerWidget {
                       children: [
                         Text(
                           sender.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 21,
                           ),
@@ -55,7 +64,7 @@ class ChatArticle extends HookConsumerWidget {
                         const SizedBox(width: 10),
                         Text(
                           DateFormat('yyyy/MM/dd').format(time),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.grey,
                           ),
                         ),
@@ -63,7 +72,7 @@ class ChatArticle extends HookConsumerWidget {
                     ),
                     Text(
                       text,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color.fromARGB(255, 196, 196, 196),
                         fontSize: 19,
                       ),
@@ -74,7 +83,6 @@ class ChatArticle extends HookConsumerWidget {
             ],
           ),
         ),
-        SizedBox(height: 20),
       ],
     );
   }

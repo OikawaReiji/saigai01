@@ -95,7 +95,8 @@ class FriendAdd extends HookConsumerWidget {
                                                     .width /
                                                 2,
                                             decoration: BoxDecoration(
-                                              border: Border.all(),
+                                              border: Border.all(
+                                                  color: Colors.white),
                                             ),
                                             child: Center(
                                               child: QrImage(
@@ -106,6 +107,7 @@ class FriendAdd extends HookConsumerWidget {
                                                 data:
                                                     usersState!.uid.toString(),
                                                 version: QrVersions.auto,
+                                                foregroundColor: Colors.white,
                                               ),
                                             ),
                                           ),
@@ -115,9 +117,6 @@ class FriendAdd extends HookConsumerWidget {
                                                 horizontal: 90),
                                             child: Text(
                                               "QRコードを読み取って、友達を追加しましょう。",
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                              ),
                                               textAlign: TextAlign.center,
                                             ),
                                           ),

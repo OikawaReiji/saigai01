@@ -81,7 +81,6 @@ class Sign extends HookConsumerWidget {
                                 FocusScope.of(context).unfocus();
                                 loading.value = true;
                                 try {
-                                  // await Future.delayed(Duration(seconds: 3));
                                   await authController.signUp(
                                     maillContainer.text,
                                     passContainer.text,

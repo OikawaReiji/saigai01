@@ -40,18 +40,27 @@ class FriendStatus extends HookConsumerWidget {
                   Row(
                     children: [
                       Container(
-                        width: 65,
-                        height: 65,
+                        width: 60,
+                        height: 60,
                         margin: const EdgeInsets.only(right: 10),
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
+                          color: Colors.black,
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          image: friends[index].profileImage != ""
+                              ? DecorationImage(
+                                  image:
+                                      NetworkImage(friends[index].profileImage),
+                                )
+                              : const DecorationImage(
+                                  fit: BoxFit.fitHeight,
+                                  image: AssetImage("assets/img/iii.jpg"),
+                                ),
                         ),
                       ),
                       Expanded(
                         child: Text(
                           friends[index].name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 24,
                           ),
@@ -66,7 +75,7 @@ class FriendStatus extends HookConsumerWidget {
                             arguments: ChatArgment(usersState: friends[index]),
                           );
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.sms_outlined,
                           size: 35,
                           color: Colors.white,

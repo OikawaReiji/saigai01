@@ -15,7 +15,7 @@ class Friend extends HookConsumerWidget {
     return Scaffold(
       backgroundColor: HexColor("#3E3C3C"),
       appBar: AppBar(
-        title: Text("フレンド"),
+        title: const Text("フレンド"),
         centerTitle: true,
         backgroundColor: HexColor("#3E3C3C"),
         actions: [
@@ -24,7 +24,7 @@ class Friend extends HookConsumerWidget {
               Navigator.pushNamed(context, FriendAdd.id);
             },
             child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Icon(
                 Icons.person_add,
                 size: 30,
@@ -35,7 +35,7 @@ class Friend extends HookConsumerWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

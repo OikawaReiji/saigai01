@@ -24,6 +24,28 @@ class GoogleMapCore extends HookConsumerWidget {
     final marker = ref.watch(markerControllerProvider);
     final markerCTL = ref.watch(markerControllerProvider.notifier);
 
+    final allMarker = shellterState.features.map(
+      (selectedShellter) {
+        return Marker(
+          markerId:
+              MarkerId(selectedShellter.geometry.coordinates[0].toString()),
+          position: LatLng(selectedShellter.geometry.coordinates[1],
+              selectedShellter.geometry.coordinates[0]),
+          icon: marker!.markerId ==
+                  selectedShellter.geometry.coordinates[0].toString()
+              ? marker.mapIconSelected!
+              : marker.mapIcon!,
+          onTap: () async {
+            final index = shellterState.features
+                .indexWhere((shellter) => shellter == selectedShellter);
+            markerCTL.updateMarkerId(
+                selectedShellter.geometry.coordinates[0].toString());
+            pageController.jumpToPage(index);
+          },
+        );
+      },
+    ).toSet();
+
     return GoogleMap(
       minMaxZoomPreference: const MinMaxZoomPreference(0, 16),
       initialCameraPosition: cameraPos,
@@ -53,29 +75,7 @@ class GoogleMapCore extends HookConsumerWidget {
                 }
               : {},
       markers: mapVeiwState == MapNavi.list
-          ? {
-              ...shellterState.features.map(
-                (selectedShellter) {
-                  return Marker(
-                    markerId: MarkerId(
-                        selectedShellter.geometry.coordinates[0].toString()),
-                    position: LatLng(selectedShellter.geometry.coordinates[1],
-                        selectedShellter.geometry.coordinates[0]),
-                    icon: marker!.markerId ==
-                            selectedShellter.geometry.coordinates[0].toString()
-                        ? marker.mapIconSelected!
-                        : marker.mapIcon!,
-                    onTap: () async {
-                      final index = shellterState.features.indexWhere(
-                          (shellter) => shellter == selectedShellter);
-                      markerCTL.updateMarkerId(
-                          selectedShellter.geometry.coordinates[0].toString());
-                      pageController.jumpToPage(index);
-                    },
-                  );
-                },
-              ).toSet(),
-            }
+          ? allMarker
           : mapVeiwState == MapNavi.navigation || mapVeiwState == MapNavi.route
               ? {
                   Marker(

@@ -58,7 +58,9 @@ class AuthController extends StateNotifier<User?> {
   }
 
   Future<void> signout() async {
-    try {} catch (e) {
+    try {
+      await ref.read(authRepositoryProvider).signOut();
+    } catch (e) {
       debugPrint(e.toString());
     }
   }

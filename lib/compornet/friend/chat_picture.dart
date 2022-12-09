@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:saigai01/view/pages/friend/image_view.dart';
 import '../../provider/general_provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -25,16 +26,25 @@ class ChatPicture extends HookConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
+          const SizedBox(height: 15),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 60,
-                height: 60,
-                margin: const EdgeInsets.only(right: 15),
-                decoration: const BoxDecoration(
+                width: 55,
+                height: 55,
+                margin: const EdgeInsets.only(right: 10),
+                decoration: BoxDecoration(
+                  color: Colors.black,
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  image: sender.profileImage != ""
+                      ? DecorationImage(
+                          image: NetworkImage(sender.profileImage),
+                        )
+                      : const DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: AssetImage("assets/img/iii.jpg"),
+                        ),
                 ),
               ),
               Expanded(
@@ -60,19 +70,37 @@ class ChatPicture extends HookConsumerWidget {
                       ],
                     ),
                     const SizedBox(height: 5),
-                    CachedNetworkImage(
-                      imageUrl: url,
-                      placeholder: (context, url) =>
-                          const CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                    InkWell(
+                      onTap: (() => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => ImageView(
+                                    url: url,
+                                  ))))),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: CachedNetworkImage(
+                          imageUrl: url,
+                          placeholder: (context, url) => Container(
+                            width: double.infinity,
+                            height: 100,
+                            decoration: const BoxDecoration(
+                              color: Colors.grey,
+                            ),
+                            child: const Center(
+                              child: Icon(Icons.cloud_upload_outlined),
+                            ),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               )
             ],
           ),
-          const SizedBox(height: 20),
         ],
       ),
     );
