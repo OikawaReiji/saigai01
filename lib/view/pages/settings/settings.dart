@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/compornet/auth/my_bar.dart';
-import 'package:saigai01/view/pages/settings/notice.dart';
 import 'package:saigai01/view/pages/settings/profile.dart';
 import '../../../compornet/setting/log_out_dialog.dart';
 import '../../../compornet/setting/safe_sheet.dart';
@@ -67,7 +66,6 @@ class SettingPage extends HookConsumerWidget {
                                       fontSize: 22, color: Colors.white),
                                   overflow: TextOverflow.ellipsis,
                                 ),
-
                               ),
                             ),
                           ],
@@ -104,7 +102,6 @@ class SettingPage extends HookConsumerWidget {
                             )
                           ],
                         ),
-
                       ),
                       MyBar(
                         text: 'プロフィール編集',
@@ -127,19 +124,12 @@ class SettingPage extends HookConsumerWidget {
                           Navigator.pushNamed(context, FriendAdd.id);
                         },
                       ),
-                      MyBar(
-                        text: 'お問い合わせ・バグ報告',
-                        icon: Icons.info_outline,
-                        icon2: Icons.arrow_forward_ios,
-                        function: () async {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Notice(),
-                            ),
-                          );
-                        },
-                      ),
+                      // MyBar(
+                      //   text: 'お問い合わせ・バグ報告',
+                      //   icon: Icons.info_outline,
+                      //   icon2: Icons.arrow_forward_ios,
+                      //   function: () async {},
+                      // ),
                       MyBar(
                         text: "ログアウト",
                         icon: Icons.logout,

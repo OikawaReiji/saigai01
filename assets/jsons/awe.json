@@ -1,11 +1,29 @@
 {
-    "distance": {
-        "text": "0.6 km",
-        "value": 593
-    },
-    "duration": {
-        "text": "7 mins",
-        "value": 420
-    },
-    "status": "OK"
+    "objects": [
+        {
+            "Hypocenter": "石川県能登地方",
+            "MaxInt": "3",
+            "OriginDateTime": "2022-12-09T05:58:00+09:00",
+            "Magnitude": "4.1",
+            "ReportDateTime": "2022-12-09T06:01:00+09:00",
+            "EventID": "20221209055809"
+        },
+        {
+            "MaxInt": "3",
+            "OriginDateTime": "2022-12-08T22:29:00+09:00",
+            "Hypocenter": "鹿児島湾",
+            "Magnitude": "4.1",
+            "ReportDateTime": "2022-12-08T22:33:00+09:00",
+            "EventID": "20221208222959"
+        },
+        {
+            "Magnitude": "3.3",
+            "OriginDateTime": "2022-12-05T10:14:00+09:00",
+            "Hypocenter": "橘湾",
+            "MaxInt": "3",
+            "ReportDateTime": "2022-12-05T10:17:00+09:00",
+            "EventID": "20221205101455"
+        }
+    ],
+    "next_cursor": "CmcKLQoOUmVwb3J0RGF0ZVRpbWUSGxoZMjAyMi0xMS0wM1QxOTowNTowMCswOTowMBIyahBifndlYXRoZXItMTYzMDEwch4LEgplYXJ0aHF1YWtlIg4yMDIyMTEwMzE5MDMwNQwYACAB"
 }

@@ -7,6 +7,7 @@ import 'package:saigai01/controller/map_controller.dart';
 import 'package:saigai01/controller/marker_controller.dart';
 import 'package:saigai01/controller/matrix_controller.dart';
 import 'package:saigai01/controller/polyline_controller.dart';
+import 'package:saigai01/controller/quake_controller.dart';
 import 'package:saigai01/controller/shellter_controller.dart';
 import 'package:saigai01/model/chat_state.dart';
 import 'package:saigai01/model/distancematrix/matrix_state.dart';
@@ -16,12 +17,12 @@ import '../controller/google_map_controller_controller.dart';
 import '../controller/real_time_location_controller.dart';
 
 import '../controller/users_controller.dart';
+import '../model/earthquake/earthquake_list.dart';
 import '../model/map/map_state.dart';
 import '../model/map/marker_data.dart';
 import '../model/shellter/features.dart';
 import '../model/shellter/shellter.dart';
 import '../model/users_state.dart';
-
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) => AuthController(ref));
@@ -42,7 +43,6 @@ enum Bar {
 }
 
 final pageRootProvider = StateProvider<Bar>((ref) => Bar.map);
-
 
 final mapControllerProvider =
     StateNotifierProvider<MapController, AsyncValue<MapState>>(
@@ -75,7 +75,6 @@ final polylineControllerProvider =
 
 final navigatingShellterProvider = StateProvider<Features?>((ref) => null);
 
-
 final friendsListControllerProvider =
     StateNotifierProvider<FriendsController, List<UsersState>>(
         (ref) => FriendsController(ref));
@@ -95,3 +94,6 @@ final matrixControllerProvider =
     StateNotifierProvider<MatrixController, MatrixState>(
         (ref) => MatrixController(ref));
 
+final quakeControllerProvider =
+    StateNotifierProvider<QuakeController, EarthquakeList>(
+        (ref) => QuakeController(ref));

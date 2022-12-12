@@ -17,6 +17,7 @@ _$_UsersState _$$_UsersStateFromJson(Map<String, dynamic> json) =>
       status: json['status'] as String? ?? "",
       profileImage: json['profileImage'] as String? ?? "",
       headerImage: json['headerImage'] as String? ?? "",
+      notificationFlg: json['notificationFlg'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$_UsersStateToJson(_$_UsersState instance) =>
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$_UsersStateToJson(_$_UsersState instance) =>
       'status': instance.status,
       'profileImage': instance.profileImage,
       'headerImage': instance.headerImage,
+      'notificationFlg': instance.notificationFlg,
     };
