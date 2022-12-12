@@ -53,10 +53,7 @@ class ShellterDetails extends HookConsumerWidget {
                 margin: const EdgeInsets.only(bottom: 15, top: 20),
                 decoration: BoxDecoration(
                   color: Colors.black,
-                  border: Border.all(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   children: [
@@ -117,12 +114,7 @@ class ShellterDetails extends HookConsumerWidget {
                 margin: const EdgeInsets.only(bottom: 50),
                 decoration: BoxDecoration(
                   color: Colors.black,
-                  border: Border.all(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                    50,
-                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

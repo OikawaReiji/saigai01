@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/constant/chat_argment.dart';
-
 import '../../model/users_state.dart';
-import '../../provider/general_provider.dart';
 import '../../view/pages/friend/chat.dart';
 
 class FriendStatus extends HookConsumerWidget {
@@ -18,8 +16,6 @@ class FriendStatus extends HookConsumerWidget {
   final List<UsersState> friends;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userState = ref.watch(usersControllerProvider);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

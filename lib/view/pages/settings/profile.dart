@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -13,7 +14,6 @@ import '../../../provider/general_provider.dart';
 
 class Profile extends HookConsumerWidget {
   const Profile({super.key});
-
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -55,18 +55,17 @@ class Profile extends HookConsumerWidget {
             children: <Widget>[
               Stack(
                 children: [
-                  Container(
-                    height: topWidgetHeight,
-                    decoration: BoxDecoration(
-                      color: Colors.blueAccent,
-                      image: userState.headerImage != ""
-                          ? DecorationImage(
-                              fit: BoxFit.fitHeight,
-                              image: NetworkImage(userState.headerImage),
-                            )
-                          : null,
-                    ),
-                  ),
+                  userState.headerImage != ""
+                      ? CachedNetworkImage(
+                          height: topWidgetHeight,
+                          imageUrl: userState.headerImage,
+                          fadeInDuration: const Duration(milliseconds: 0),
+                          fadeOutDuration: const Duration(milliseconds: 0),
+                        )
+                      : Container(
+                          height: topWidgetHeight,
+                          color: Colors.blueAccent,
+                        ),
                   Positioned(
                     right: 10,
                     top: 10,
@@ -214,6 +213,62 @@ class Profile extends HookConsumerWidget {
                           );
                         },
                       ),
+                      Container(
+                        width: double.infinity,
+                        height: 80,
+                        margin:
+                            const EdgeInsets.only(left: 10, right: 10, top: 10),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          color: HexColor("#2e3037"),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "notification",
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          color: Color.fromARGB(
+                                              255, 188, 188, 188),
+                                        ),
+                                      ),
+                                      Text(
+                                        userState.notificationFlg
+                                            ? "通知設定 ON"
+                                            : "通知設定 OFF",
+                                        style: const TextStyle(
+                                          fontSize: 22,
+                                          color: Colors.white,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Switch(
+                                  value: userState.notificationFlg,
+                                  onChanged: (val) async {
+                                    await userCTL.updateFlg(val);
+                                  },
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -226,32 +281,48 @@ class Profile extends HookConsumerWidget {
             child: Stack(
               clipBehavior: Clip.none,
               children: [
-                Container(
-                  width: avatarRadius * 2 + 12,
-                  height: avatarRadius * 2 + 12,
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Container(
-                      width: avatarRadius * 2,
-                      height: avatarRadius * 2,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        shape: BoxShape.circle,
-                        image: userState.profileImage != ""
-                            ? DecorationImage(
-                                image: NetworkImage(userState.profileImage),
-                              )
-                            : const DecorationImage(
-                                fit: BoxFit.fitHeight,
-                                image: AssetImage("assets/img/iii.jpg"),
-                              ),
+                userState.profileImage != ""
+                    ? CachedNetworkImage(
+                        imageUrl: userState.profileImage,
+                        imageBuilder: (context, imageProvider) => Container(
+                          width: avatarRadius * 2,
+                          height: avatarRadius * 2,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 5),
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        placeholder: (context, url) => Container(
+                          width: avatarRadius * 2,
+                          height: avatarRadius * 2,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 5),
+                            image: const DecorationImage(
+                              image: AssetImage("assets/img/iii.jpg"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
+                      )
+                    : Container(
+                        width: avatarRadius * 2,
+                        height: avatarRadius * 2,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 5),
+                          image: const DecorationImage(
+                            image: AssetImage("assets/img/iii.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                 Positioned(
                   right: -5,
                   top: -5,
@@ -300,10 +371,9 @@ class Profile extends HookConsumerWidget {
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
-
   }
 }

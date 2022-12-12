@@ -17,6 +17,7 @@ class UsersState with _$UsersState {
     @Default("") String status,
     @Default("") String profileImage,
     @Default("") String headerImage,
+    @Default(true) bool notificationFlg,
   }) = _UsersState;
 
   factory UsersState.fromJson(Map<String, dynamic> json) =>

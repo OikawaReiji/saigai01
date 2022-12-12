@@ -77,4 +77,8 @@ class UsersController extends StateNotifier<UsersState?> {
     await ref.read(usersRepositoryProvider).updateText(text, select);
     function();
   }
+
+  Future<void> updateFlg(bool flg) async {
+    await ref.read(usersRepositoryProvider).updateFlg(flg);
+  }
 }

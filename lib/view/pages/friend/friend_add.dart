@@ -18,13 +18,13 @@ class FriendAdd extends HookConsumerWidget {
     final loading = useState(false);
     final friendCTL = ref.watch(friendsListControllerProvider.notifier);
     final usersState = ref.watch(usersControllerProvider);
+    final size = MediaQuery.of(context).size;
 
     return Stack(
       children: [
         Scaffold(
           backgroundColor: HexColor("#3E3C3C"),
           appBar: AppBar(
-            backgroundColor: HexColor("#3E3C3C"),
             leading: InkWell(
               onTap: () {
                 Navigator.pop(context);
@@ -64,7 +64,7 @@ class FriendAdd extends HookConsumerWidget {
                           borderRadius: 10,
                           borderLength: 30,
                           borderWidth: 10,
-                          cutOutSize: 270,
+                          cutOutSize: size.width * 0.7,
                         ),
                       ),
                       Align(
@@ -177,7 +177,7 @@ class FriendAdd extends HookConsumerWidget {
                   ),
                 ),
                 Container(
-                  height: 170,
+                  height: size.width * 0.3,
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   decoration: BoxDecoration(

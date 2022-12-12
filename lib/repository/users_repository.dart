@@ -15,6 +15,7 @@ abstract class UsersRepository {
   Future<String> uploadImage(File image);
   Future<void> saveImageUrl(String url, ImageSelect select);
   Future<void> updateText(String text, TextSelect select);
+  Future<void> updateFlg(bool flg);
 }
 
 class GenreRepositoryImple implements UsersRepository {
@@ -82,5 +83,12 @@ class GenreRepositoryImple implements UsersRepository {
         'status': text,
       });
     }
+  }
+
+  @override
+  Future<void> updateFlg(bool flg) async {
+    await collectionReference!.doc(userId).update({
+      'notificationFlg': flg,
+    });
   }
 }

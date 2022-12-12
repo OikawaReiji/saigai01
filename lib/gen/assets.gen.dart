@@ -12,9 +12,6 @@ import 'package:flutter/widgets.dart';
 class $AssetsImgGen {
   const $AssetsImgGen();
 
-  /// File path: assets/img/hard.png
-  AssetGenImage get hard => const AssetGenImage('assets/img/hard.png');
-
   /// File path: assets/img/icon_focus.png
   AssetGenImage get iconFocus =>
       const AssetGenImage('assets/img/icon_focus.png');
@@ -22,8 +19,8 @@ class $AssetsImgGen {
   /// File path: assets/img/iii.jpg
   AssetGenImage get iii => const AssetGenImage('assets/img/iii.jpg');
 
-  /// File path: assets/img/kuga.png
-  AssetGenImage get kuga => const AssetGenImage('assets/img/kuga.png');
+  /// File path: assets/img/image.png
+  AssetGenImage get image => const AssetGenImage('assets/img/image.png');
 
   /// File path: assets/img/map_icon.png
   AssetGenImage get mapIcon => const AssetGenImage('assets/img/map_icon.png');
@@ -36,14 +33,9 @@ class $AssetsImgGen {
   AssetGenImage get toppageIcon =>
       const AssetGenImage('assets/img/toppage_icon.jpg');
 
-  /// File path: assets/img/wa.png
-  AssetGenImage get wa => const AssetGenImage('assets/img/wa.png');
-
   /// List of all assets
-
   List<AssetGenImage> get values =>
-      [hard, iconFocus, iii, kuga, mapIcon, mapIconSelected, toppageIcon, wa];
-
+      [iconFocus, iii, image, mapIcon, mapIconSelected, toppageIcon];
 }
 
 class $AssetsJsonsGen {

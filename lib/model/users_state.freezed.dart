@@ -29,6 +29,7 @@ mixin _$UsersState {
   String get status => throw _privateConstructorUsedError;
   String get profileImage => throw _privateConstructorUsedError;
   String get headerImage => throw _privateConstructorUsedError;
+  bool get notificationFlg => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +52,8 @@ abstract class $UsersStateCopyWith<$Res> {
       String phone,
       String status,
       String profileImage,
-      String headerImage});
+      String headerImage,
+      bool notificationFlg});
 }
 
 /// @nodoc
@@ -76,6 +78,7 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
     Object? status = null,
     Object? profileImage = null,
     Object? headerImage = null,
+    Object? notificationFlg = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -114,6 +117,10 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
           ? _value.headerImage
           : headerImage // ignore: cast_nullable_to_non_nullable
               as String,
+      notificationFlg: null == notificationFlg
+          ? _value.notificationFlg
+          : notificationFlg // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -135,7 +142,8 @@ abstract class _$$_UsersStateCopyWith<$Res>
       String phone,
       String status,
       String profileImage,
-      String headerImage});
+      String headerImage,
+      bool notificationFlg});
 }
 
 /// @nodoc
@@ -158,6 +166,7 @@ class __$$_UsersStateCopyWithImpl<$Res>
     Object? status = null,
     Object? profileImage = null,
     Object? headerImage = null,
+    Object? notificationFlg = null,
   }) {
     return _then(_$_UsersState(
       email: null == email
@@ -196,6 +205,10 @@ class __$$_UsersStateCopyWithImpl<$Res>
           ? _value.headerImage
           : headerImage // ignore: cast_nullable_to_non_nullable
               as String,
+      notificationFlg: null == notificationFlg
+          ? _value.notificationFlg
+          : notificationFlg // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -212,7 +225,8 @@ class _$_UsersState extends _UsersState {
       this.phone = "",
       this.status = "",
       this.profileImage = "",
-      this.headerImage = ""})
+      this.headerImage = "",
+      this.notificationFlg = true})
       : _friends = friends,
         super._();
 
@@ -251,10 +265,13 @@ class _$_UsersState extends _UsersState {
   @override
   @JsonKey()
   final String headerImage;
+  @override
+  @JsonKey()
+  final bool notificationFlg;
 
   @override
   String toString() {
-    return 'UsersState(email: $email, uid: $uid, name: $name, address: $address, friends: $friends, phone: $phone, status: $status, profileImage: $profileImage, headerImage: $headerImage)';
+    return 'UsersState(email: $email, uid: $uid, name: $name, address: $address, friends: $friends, phone: $phone, status: $status, profileImage: $profileImage, headerImage: $headerImage, notificationFlg: $notificationFlg)';
   }
 
   @override
@@ -272,7 +289,9 @@ class _$_UsersState extends _UsersState {
             (identical(other.profileImage, profileImage) ||
                 other.profileImage == profileImage) &&
             (identical(other.headerImage, headerImage) ||
-                other.headerImage == headerImage));
+                other.headerImage == headerImage) &&
+            (identical(other.notificationFlg, notificationFlg) ||
+                other.notificationFlg == notificationFlg));
   }
 
   @JsonKey(ignore: true)
@@ -287,7 +306,8 @@ class _$_UsersState extends _UsersState {
       phone,
       status,
       profileImage,
-      headerImage);
+      headerImage,
+      notificationFlg);
 
   @JsonKey(ignore: true)
   @override
@@ -313,7 +333,8 @@ abstract class _UsersState extends UsersState {
       final String phone,
       final String status,
       final String profileImage,
-      final String headerImage}) = _$_UsersState;
+      final String headerImage,
+      final bool notificationFlg}) = _$_UsersState;
   _UsersState._() : super._();
 
   factory _UsersState.fromJson(Map<String, dynamic> json) =
@@ -337,6 +358,8 @@ abstract class _UsersState extends UsersState {
   String get profileImage;
   @override
   String get headerImage;
+  @override
+  bool get notificationFlg;
   @override
   @JsonKey(ignore: true)
   _$$_UsersStateCopyWith<_$_UsersState> get copyWith =>
