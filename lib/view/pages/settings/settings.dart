@@ -124,18 +124,11 @@ class SettingPage extends HookConsumerWidget {
                           Navigator.pushNamed(context, FriendAdd.id);
                         },
                       ),
-                      // MyBar(
-                      //   text: 'お問い合わせ・バグ報告',
-                      //   icon: Icons.info_outline,
-                      //   icon2: Icons.arrow_forward_ios,
-                      //   function: () async {},
-                      // ),
                       MyBar(
                         text: "ログアウト",
                         icon: Icons.logout,
                         icon2: Icons.arrow_forward_ios,
                         function: () async {
-                          // await authController.signout();
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {

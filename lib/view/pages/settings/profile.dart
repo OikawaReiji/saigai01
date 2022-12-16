@@ -8,6 +8,7 @@ import 'package:saigai01/compornet/setting/edit_text_dialog.dart';
 import 'package:saigai01/constant/hex_color.dart';
 import 'package:saigai01/controller/users_controller.dart';
 import '../../../compornet/setting/edit_profile_bar.dart';
+import '../../../compornet/setting/edit_swich_bar.dart';
 import '../../../compornet/setting/picture_dialog.dart';
 import '../../../compornet/setting/safe_sheet.dart';
 import '../../../provider/general_provider.dart';
@@ -213,62 +214,7 @@ class Profile extends HookConsumerWidget {
                           );
                         },
                       ),
-                      Container(
-                        width: double.infinity,
-                        height: 80,
-                        margin:
-                            const EdgeInsets.only(left: 10, right: 10, top: 10),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          color: HexColor("#2e3037"),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        "notification",
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: Color.fromARGB(
-                                              255, 188, 188, 188),
-                                        ),
-                                      ),
-                                      Text(
-                                        userState.notificationFlg
-                                            ? "通知設定 ON"
-                                            : "通知設定 OFF",
-                                        style: const TextStyle(
-                                          fontSize: 22,
-                                          color: Colors.white,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Switch(
-                                  value: userState.notificationFlg,
-                                  onChanged: (val) async {
-                                    await userCTL.updateFlg(val);
-                                  },
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                      const EditSwichBar(),
                     ],
                   ),
                 ),

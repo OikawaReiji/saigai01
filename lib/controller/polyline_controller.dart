@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/repository/polyline_repository.dart';
-
 import '../provider/general_provider.dart';
 
 class PolylineController extends StateNotifier<List<PointLatLng>> {

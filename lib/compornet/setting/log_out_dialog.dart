@@ -37,8 +37,11 @@ class LogOutDialog extends HookConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () async {
-            await authController.signout();
-            Navigator.pop(context);
+            await authController.signout(
+              () {
+                Navigator.pop(context);
+              },
+            );
           },
           child: const Center(
             child: Text("ログアウト"),

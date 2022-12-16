@@ -11,7 +11,6 @@ class Friend extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final friends = ref.watch(friendsListControllerProvider);
-    final userState = ref.watch(usersControllerProvider);
     return Scaffold(
       backgroundColor: HexColor("#3E3C3C"),
       appBar: AppBar(
