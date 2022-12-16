@@ -1,13 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:dio/dio.dart';
 import 'package:saigai01/model/distancematrix/matrix_state.dart';
-
-import '../model/shellter/shellter.dart';
 
 final mapRepositoryProvider =
     Provider<MapRepository>((ref) => MapRepositoryImple(ref));

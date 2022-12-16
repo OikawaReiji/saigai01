@@ -13,8 +13,8 @@ abstract class QuakeRepository {
 
 class QuakeRepositoryImple implements QuakeRepository {
   final Ref ref;
+  QuakeRepositoryImple(this.ref);
 
-  QuakeRepositoryImple(this.ref) {}
   @override
   Future<EarthquakeList> fechQuake() async {
     try {

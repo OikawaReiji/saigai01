@@ -17,9 +17,9 @@ class CustomMarker extends StatelessWidget {
           Align(
             child: Container(
               margin: const EdgeInsets.only(bottom: 12),
-              child: Text(
+              child: const Text(
                 "〇",
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                   fontSize: 18.0,

@@ -171,7 +171,7 @@ class Chat extends HookConsumerWidget {
                           ),
                         ),
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
               ],
             ),
           )

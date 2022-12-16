@@ -18,7 +18,7 @@ class PageRoot extends HookConsumerWidget {
 
     final List<Widget> bar = [
       const MapPage(),
-      const public_offpage(),
+      const Quake(),
       const Friend(),
       const SettingPage(),
     ];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:saigai01/constant/hex_color.dart';
+import '../../controller/users_controller.dart';
 import '../../model/map/map_state.dart';
 import '../../provider/general_provider.dart';
 
@@ -18,6 +19,7 @@ class RoutePanel extends HookConsumerWidget {
     final mapCTL = ref.watch(mapControllerProvider.notifier);
     final googleMapState = ref.watch(googleMapControllerProvider);
     final matrixState = ref.watch(matrixControllerProvider);
+    final userCTL = ref.watch(usersControllerProvider.notifier);
 
     return mapVeiwState == MapNavi.route
         ? Align(
@@ -108,6 +110,13 @@ class RoutePanel extends HookConsumerWidget {
                                   myLocation.latitude,
                                   myLocation.longitude,
                                 ),
+                                () async {
+                                  await userCTL.updateText(
+                                    "danger",
+                                    TextSelect.safe,
+                                    () {},
+                                  );
+                                },
                                 () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(

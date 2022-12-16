@@ -26,6 +26,7 @@ class FeachPolylineRepositoryImple implements FeachPolylineRepository {
       avoidTolls: true,
       travelMode: TravelMode.walking,
     );
+
     return result.points;
   }
 }

@@ -27,6 +27,7 @@ class MapController extends StateNotifier<AsyncValue<MapState>> {
   Future<void> initNavigation(
     GoogleMapController mapController,
     LatLng target,
+    Function() toDenger,
     Function() loadingFunction,
     Function() popFunction,
   ) async {
@@ -37,6 +38,7 @@ class MapController extends StateNotifier<AsyncValue<MapState>> {
         18,
       ),
     );
+    await toDenger();
     //ロード画面
     loadingFunction();
     await Future.delayed(const Duration(milliseconds: 500));

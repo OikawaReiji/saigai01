@@ -37,7 +37,6 @@ class ChatRepositoryImple implements ChatRepository {
   @override
   Stream<List<QueryDocumentSnapshot<ChatState>>> feachChat(String uid) async* {
     final myUid = ref.read(usersControllerProvider)!.uid;
-    debugPrint("チャットRepository" + myUid);
     final stateRef = collectionReference!
         .where(
           'receiver',

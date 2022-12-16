@@ -49,7 +49,6 @@ class AuthController extends StateNotifier<User?> {
     }
   }
 
-
   void showToast(String flg) {
     String msg = "";
     switch (flg) {
@@ -91,22 +90,17 @@ class AuthController extends StateNotifier<User?> {
         fontSize: 20.0);
   }
 
-
   Future<void> signin(
     String email,
     String password,
     ValueNotifier<bool> loading,
   ) async {
     try {
-
       if (email == "" || password == "") {
         loading.value = false;
         return showToast("no-data");
       }
-      final flg = await ref
-          .read(authRepositoryProvider)
-          .signInWithEmail(email, password);
-
+      await ref.read(authRepositoryProvider).signInWithEmail(email, password);
 
       loading.value = false;
     } catch (e) {
@@ -115,9 +109,10 @@ class AuthController extends StateNotifier<User?> {
     }
   }
 
-  Future<void> signout() async {
+  Future<void> signout(Function() function) async {
     try {
       await ref.read(authRepositoryProvider).signOut();
+      function();
     } catch (e) {
       debugPrint(e.toString());
     }

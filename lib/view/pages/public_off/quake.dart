@@ -5,8 +5,8 @@ import 'package:saigai01/provider/general_provider.dart';
 
 import '../../../constant/hex_color.dart';
 
-class public_offpage extends HookConsumerWidget {
-  const public_offpage({super.key});
+class Quake extends HookConsumerWidget {
+  const Quake({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
